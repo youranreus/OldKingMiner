@@ -2,6 +2,9 @@ package com.company.model.entity;
 
 public class item extends entity {
 
+    /**
+     * item constructor
+     */
     public item() {
         setName("unknown");
         setX(0);
@@ -11,11 +14,17 @@ public class item extends entity {
         setId(-1);
     }
 
+    /**
+     * item constructor
+     */
     public item(String _name) {
         this();
         setName(_name);
     }
 
+    /**
+     * item constructor
+     */
     public item(item i) {
         this();
         setName(i.getName());
@@ -23,6 +32,9 @@ public class item extends entity {
         setWidth(i.getWidth());
     }
 
+    /**
+     * item constructor
+     */
     public item(String _name, int h, int w, int id) {
         this();
         setName(_name);

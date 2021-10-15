@@ -1,4 +1,4 @@
-package com.company.entity;
+package com.company.model.entity;
 
 public abstract class entity {
 

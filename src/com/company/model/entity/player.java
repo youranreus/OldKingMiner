@@ -1,4 +1,4 @@
-package com.company.model.item;
+package com.company.model.entity;
 
 public class player extends item {
 
