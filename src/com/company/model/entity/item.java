@@ -84,4 +84,9 @@ public class item extends entity {
         width = _data;
     }
 
+    void move(int _x, int _y) {
+        setX(_x);
+        setY(_y);
+    }
+
 }
