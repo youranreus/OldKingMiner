@@ -1,6 +1,8 @@
 package com.company.model.entity;
 
-public class item extends entity {
+import com.company.model.action.ItemAction;
+
+public class item extends entity implements ItemAction{
 
     /**
      * item constructor
@@ -110,13 +112,30 @@ public class item extends entity {
     }
 
     /**
-     * 物体移动
+     * 移动物体
+     *
      * @param _x 目标x
      * @param _y 目标y
+     * @return boolean 移动是否成功
      */
-    void move(int _x, int _y) {
-        setX(_x);
-        setY(_y);
+    public boolean move(int _x, int _y) {
+        try {
+            setX(_x);
+            setY(_y);
+            return true;
+        }
+        catch (Exception e) {
+            return false;
+        }
+    }
+
+    /**
+     * 删除物体
+     *
+     * @return boolean 删除成功
+     */
+    public boolean destroy() {
+        return true;
     }
 
 }
