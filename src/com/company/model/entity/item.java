@@ -16,6 +16,7 @@ public class item extends entity {
 
     /**
      * item constructor
+     * @param _name 物体名称
      */
     public item(String _name) {
         this();
@@ -24,6 +25,7 @@ public class item extends entity {
 
     /**
      * item constructor
+     * @param i 复制对象
      */
     public item(item i) {
         this();
@@ -34,6 +36,10 @@ public class item extends entity {
 
     /**
      * item constructor
+     * @param _name 物体名称
+     * @param h 物体高度
+     * @param w 物体宽度
+     * @param id 物体id
      */
     public item(String _name, int h, int w, int id) {
         this();
@@ -103,6 +109,11 @@ public class item extends entity {
         width = _data;
     }
 
+    /**
+     * 物体移动
+     * @param _x 目标x
+     * @param _y 目标y
+     */
     void move(int _x, int _y) {
         setX(_x);
         setY(_y);
