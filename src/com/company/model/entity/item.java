@@ -23,6 +23,13 @@ public class item extends entity {
         setWidth(i.getWidth());
     }
 
+    public item(String _name, int h, int w, int id) {
+        this();
+        setName(_name);
+        setHeight(h);
+        setWidth(w);
+        setId(id);
+    }
 
     @Override
     String getName() {
