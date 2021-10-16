@@ -142,4 +142,71 @@ public class GameController extends BaseController {
         return true;
     }
 
+    /**
+     * 判断是否通关
+     *
+     * @return boolean
+     */
+    public boolean hasPass() {
+        return this.getTotalScore() >= this.maxScore;
+    }
+
+    /**
+     * 获取关卡等级
+     *
+     * @return int level
+     */
+    public int getLevel() {
+        return this.level;
+    }
+
+    /**
+     * 获取关卡总时间
+     *
+     * @return int time
+     */
+    public int getTime() {
+        return this.time;
+    }
+
+    /**
+     * 获取当前关卡模式
+     *
+     * @return int mode
+     */
+    public int getGameMode() {
+        return gameMode;
+    }
+
+    /**
+     * 获取当前关卡人数
+     *
+     * @return int num
+     */
+    public int getPlayerNum() {
+        return playerNum;
+    }
+
+    /**
+     * 获取当前关卡最及格/决胜分
+     *
+     * @return int score
+     */
+    public int getMaxScore() {
+        return maxScore;
+    }
+
+    /**
+     * 获取当前所有玩家总得分
+     *
+     * @return int score
+     */
+    public int getTotalScore() {
+        int total = 0;
+        for (player _player : this.players)
+            total += _player.getBalance();
+
+        return total;
+    }
+
 }
