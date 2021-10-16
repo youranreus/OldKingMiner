@@ -14,7 +14,7 @@ public interface ItemAction {
     /**
      * 删除物体
      *
-     * @return boolean 删除成功
+     * @return boolean 删除是否成功
      */
     boolean destroy();
 }
