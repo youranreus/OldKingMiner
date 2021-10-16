@@ -62,7 +62,7 @@ public class GameController extends BaseController {
      * @param gameMode  关卡模式
      * @param maxScore  最高分数
      */
-    GameController(int level, int time, int playerNum, int gameMode, int maxScore) {
+    public GameController(int level, int time, int playerNum, int gameMode, int maxScore) {
         this.level = level;
         this.time = time;
         this.playerNum = playerNum;
@@ -78,7 +78,7 @@ public class GameController extends BaseController {
      *
      * @param playerNum 玩家人数
      */
-    GameController(int playerNum) {
+    public GameController(int playerNum) {
         this.level = 0;
         this.gameMode = 1;
         this.playerNum = playerNum;
@@ -90,7 +90,7 @@ public class GameController extends BaseController {
      *
      * @param upper 上层关卡
      */
-    GameController(GameController upper) {
+    public GameController(GameController upper) {
         this.players = upper.players;
         this.level = upper.level == 100 ? 100 : upper.level + 1;
         this.gameMode = upper.gameMode;
