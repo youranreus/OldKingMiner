@@ -108,6 +108,7 @@ public class GameController extends BaseController {
      * maxScore 为从 (500+level*120) 分
      */
     private void init() {
+        this.players = new player[this.playerNum];
         for (int i = 0; i < playerNum; i++)
             this.players[i] = new player("玩家" + i, 1000 + i);
 
