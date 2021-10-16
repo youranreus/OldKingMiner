@@ -113,9 +113,33 @@ public class GameController extends BaseController {
 
         if (this.customerGame)
             return;
-        this.time = 180 - this.level;
+        this.time = this.gameMode == 2 ? 999999 : 180 - this.level;
         this.maxScore = 500 + level * 120;
     }
 
+    /**
+     * 游戏是否结束
+     *
+     * @param t 已经进行时间
+     * @return 是否结束
+     */
+    public boolean finished(int t) {
+        if (this.gameMode == 1 || this.gameMode == 3)
+            return this.time <= t;
+        return this.gameMode == 4 && this.isSomePlayerWin();
+    }
+
+    /**
+     * 是否已经有玩家取胜
+     *
+     * @return boolean
+     */
+    private boolean isSomePlayerWin() {
+        for (player _player : this.players) {
+            if (_player.getBalance() >= this.maxScore)
+                return true;
+        }
+        return true;
+    }
 
 }
