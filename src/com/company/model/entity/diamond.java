@@ -1,5 +1,7 @@
 package com.company.model.entity;
 
+import com.company.utils.utils;
+
 public class diamond extends mineral{
 
     /**
@@ -20,4 +22,12 @@ public class diamond extends mineral{
             this.price = 6000;
     }
 
+    /**
+     * 钻石生成深度: 40~50
+     */
+    @Override
+    void generate() {
+        super.generate();
+        this.setY(utils.random(40,50));
+    }
 }

@@ -1,5 +1,7 @@
 package com.company.model.entity;
 
+import com.company.utils.utils;
+
 public class mineral extends item{
 
     /**
@@ -41,6 +43,13 @@ public class mineral extends item{
      */
     int getPrice() {
         return price;
+    }
+
+    /**
+     * 生成矿物位置
+     */
+    void generate() {
+        this.setX(utils.random(0,70));
     }
 
 }

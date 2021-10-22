@@ -1,5 +1,7 @@
 package com.company.model.entity;
 
+import com.company.utils.utils;
+
 public class gold extends mineral {
 
     /**
@@ -20,4 +22,12 @@ public class gold extends mineral {
             this.price = 600;
     }
 
+    /**
+     * 金矿生成深度为20~50格
+     */
+    @Override
+    void generate() {
+        super.generate();
+        this.setY(utils.random(20,50));
+    }
 }

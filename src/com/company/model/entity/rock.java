@@ -1,5 +1,7 @@
 package com.company.model.entity;
 
+import com.company.utils.utils;
+
 public class rock extends mineral{
 
     /**
@@ -18,5 +20,14 @@ public class rock extends mineral{
             this.price = 30;
         else
             this.price = 60;
+    }
+
+    /**
+     * 岩石生成深度: 10~50
+     */
+    @Override
+    void generate() {
+        super.generate();
+        this.setY(utils.random(10, 50));
     }
 }
