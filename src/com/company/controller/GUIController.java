@@ -5,7 +5,7 @@ import com.company.utils.config;
 import javax.swing.*;
 import java.awt.*;
 
-public class MenuController extends JFrame {
+public class GUIController extends JFrame {
 
     Image background = Toolkit.getDefaultToolkit().getImage("assets/img/bg.png");
 
@@ -33,7 +33,7 @@ public class MenuController extends JFrame {
     /**
      * MenuController constructor.
      */
-    public MenuController() {
+    public GUIController() {
         this.launch();
     }
 
