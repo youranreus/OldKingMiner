@@ -9,7 +9,7 @@ public class gold extends mineral {
      * @param _id id
      * @param _size 物体大小
      */
-    gold(String _name, int _id, int _size) {
+    public gold(String _name, int _id, int _size) {
         super(_name, _id, _size);
         this.size = _size;
         if (size == 1)
