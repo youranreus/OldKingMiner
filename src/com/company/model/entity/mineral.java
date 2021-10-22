@@ -34,7 +34,7 @@ public class mineral extends item{
      * 获取矿物大小
      * @return int size
      */
-    int getSize() {
+    public int getSize() {
         return size;
     }
 
@@ -42,7 +42,7 @@ public class mineral extends item{
      * 获取矿物价值
      * @return int price
      */
-    int getPrice() {
+    public int getPrice() {
         return price;
     }
 
