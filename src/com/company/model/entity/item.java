@@ -52,62 +52,62 @@ public class item extends entity implements ItemAction{
     }
 
     @Override
-    String getName() {
+    public String getName() {
         return name;
     }
 
     @Override
-    void setName(String _name) {
+    public void setName(String _name) {
         name = _name;
     }
 
     @Override
-    int getId() {
+    public int getId() {
         return id;
     }
 
     @Override
-    void setId(int _data) {
+    public void setId(int _data) {
         id = _data;
     }
 
     @Override
-    int getX() {
+    public int getX() {
         return x;
     }
 
     @Override
-    void setX(int _data) {
+    public void setX(int _data) {
         x = _data;
     }
 
     @Override
-    int getY() {
+    public int getY() {
         return y;
     }
 
     @Override
-    void setY(int _data) {
+    public void setY(int _data) {
         y = _data;
     }
 
     @Override
-    int getHeight() {
+    public int getHeight() {
         return height;
     }
 
     @Override
-    void setHeight(int _data) {
+    public void setHeight(int _data) {
         height = _data;
     }
 
     @Override
-    int getWidth() {
+    public int getWidth() {
         return width;
     }
 
     @Override
-    void setWidth(int _data) {
+    public void setWidth(int _data) {
         width = _data;
     }
 
