@@ -69,6 +69,7 @@ public class GameController extends BaseController {
         this.gameMode = gameMode;
         this.maxScore = maxScore;
         this.customerGame = true;
+        this.gameMap = new map(this.level);
         this.init();
     }
 
@@ -82,6 +83,7 @@ public class GameController extends BaseController {
         this.level = 0;
         this.gameMode = 1;
         this.playerNum = playerNum;
+        this.gameMap = new map(0);
         this.init();
     }
 
@@ -98,7 +100,7 @@ public class GameController extends BaseController {
         this.customerGame = upper.customerGame;
         this.playerNum = upper.playerNum;
         this.maxScore = upper.maxScore + 120;
-        this.gameMap = upper.gameMap;
+        this.gameMap = new map(upper.level + 1);
     }
 
     /**
