@@ -27,6 +27,7 @@ public class mineral extends item{
     mineral(String _name, int _id, int _size) {
         super(_name, 0, 0, _id);
         this.size = _size;
+        this.generate();
     }
 
     /**
