@@ -1,6 +1,8 @@
 package com.company.model.entity;
 
-public class player extends item {
+import com.company.model.action.PlayerAction;
+
+public class player extends item implements PlayerAction {
 
     /**
      * 玩家余额
@@ -13,18 +15,29 @@ public class player extends item {
     private final int hp;
 
     /**
+     * 玩家钩子
+     */
+    private final hook phook;
+
+    /**
      * player constructor
+     * 玩家高2，宽1，出生于中点(5, 35)
+     *
      * @param _name 玩家名
-     * @param id 玩家id
+     * @param id    玩家id
      */
     public player(String _name, int id) {
-        super(_name, 0, 0, id);
+        super(_name, 2, 1, id);
+        phook = new hook(_name, this.x, this.y);
         this.balance = 0;
         this.hp = 100;
+        this.setY(5);
+        this.setX(35);
     }
 
     /**
      * 获取玩家余额
+     *
      * @return int balance
      */
     public int getBalance() {
@@ -33,10 +46,30 @@ public class player extends item {
 
     /**
      * 获取玩家血量
+     *
      * @return int hp
      */
     public int getHp() {
         return this.hp;
     }
 
+    /**
+     * 玩家移动（只能在x轴移动）
+     *
+     * @param step 步数(左减右加)
+     * @return boolean 是否移动成功
+     */
+    public boolean move(int step) {
+        return super.move(this.getX() + step, this.getY());
+    }
+
+    /**
+     * 玩家下放钩子
+     *
+     * @return boolean
+     */
+    @Override
+    public boolean dropTheHook() {
+        return this.phook.drop();
+    }
 }
