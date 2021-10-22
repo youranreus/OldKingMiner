@@ -99,7 +99,7 @@ public class map implements MapAction {
     public String toString() {
         StringBuilder result = new StringBuilder("地图生成状态：\n" + "物体个数：" + this.getItemNum() + "\n物体：");
         for (mineral i : this.items)
-            result.append("[").append(i.getName()).append("]\n").append("价格: ").append(i.getPrice()).append("\n大小: ").append(i.getSize()).append("\n位置：(").append(i.getX()).append(", ").append(i.getY()).append(")\n");
+            result.append("[").append(i.getName()).append("#").append(i.getId()).append("]\n").append("价格: ").append(i.getPrice()).append("\n大小: ").append(i.getSize()).append("\n位置：(").append(i.getX()).append(", ").append(i.getY()).append(")\n");
         return result.toString();
     }
 }
