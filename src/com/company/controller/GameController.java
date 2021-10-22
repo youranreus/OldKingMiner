@@ -40,7 +40,7 @@ public class GameController extends BaseController {
     /**
      * 游戏地图
      */
-    private map gameMap;
+    private final map gameMap;
 
     /**
      * 游戏玩家
@@ -101,6 +101,7 @@ public class GameController extends BaseController {
         this.playerNum = upper.playerNum;
         this.maxScore = upper.maxScore + 120;
         this.gameMap = new map(upper.level + 1);
+        this.gameMap.init();
     }
 
     /**
@@ -118,6 +119,7 @@ public class GameController extends BaseController {
             return;
         this.time = this.gameMode == 2 ? 999999 : 180 - this.level;
         this.maxScore = 500 + level * 120;
+        this.gameMap.init();
     }
 
     /**
