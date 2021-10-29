@@ -21,7 +21,7 @@ public class player extends item implements PlayerAction {
 
     /**
      * player constructor
-     * 玩家高2，宽1，出生于中点(5, 35)
+     * 玩家高2，宽1，出生于中点(90, 400)
      *
      * @param _name 玩家名
      * @param id    玩家id
@@ -31,8 +31,8 @@ public class player extends item implements PlayerAction {
         phook = new hook(_name, this.x, this.y);
         this.balance = 0;
         this.hp = 100;
-        this.setY(5);
-        this.setX(35);
+        this.setY(90);
+        this.setX(400);
     }
 
     /**

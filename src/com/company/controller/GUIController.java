@@ -14,7 +14,7 @@ public class GUIController extends JFrame {
      */
     void launch() {
         this.setVisible(true);
-        this.setSize(800, 400);
+        this.setSize(800, 800);
         this.setLocationRelativeTo(null);
         this.setTitle("老金矿工@" + config.VERSION);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -28,6 +28,7 @@ public class GUIController extends JFrame {
     @Override
     public void paint(Graphics g) {
         g.drawImage(this.background, 0,0,null);
+        g.drawImage(this.background, 0,400,null);
     }
 
     /**

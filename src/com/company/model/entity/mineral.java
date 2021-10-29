@@ -50,7 +50,7 @@ public class mineral extends item{
      * 生成矿物位置
      */
     void generate() {
-        this.setX(utils.random(0,70));
+        this.setX(utils.random(0,800));
     }
 
 }

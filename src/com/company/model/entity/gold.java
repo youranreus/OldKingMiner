@@ -23,11 +23,11 @@ public class gold extends mineral {
     }
 
     /**
-     * 金矿生成深度为20~50格
+     * 金矿生成深度为200~800
      */
     @Override
     void generate() {
         super.generate();
-        this.setY(utils.random(20,50));
+        this.setY(utils.random(200,800));
     }
 }

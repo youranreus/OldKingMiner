@@ -23,11 +23,11 @@ public class diamond extends mineral{
     }
 
     /**
-     * 钻石生成深度: 40~50
+     * 钻石生成深度: 600~800
      */
     @Override
     void generate() {
         super.generate();
-        this.setY(utils.random(40,50));
+        this.setY(utils.random(600,800));
     }
 }

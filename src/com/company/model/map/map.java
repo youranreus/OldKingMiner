@@ -31,8 +31,8 @@ public class map implements MapAction {
     private final int level;
 
     public map(int _level) {
-        this.height = 50;
-        this.width = 70;
+        this.height = 800;
+        this.width = 800;
         this.level = _level;
     }
 

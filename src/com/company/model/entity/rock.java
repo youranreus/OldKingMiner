@@ -23,11 +23,11 @@ public class rock extends mineral{
     }
 
     /**
-     * 岩石生成深度: 10~50
+     * 岩石生成深度: 100~800
      */
     @Override
     void generate() {
         super.generate();
-        this.setY(utils.random(10, 50));
+        this.setY(utils.random(100, 800));
     }
 }
