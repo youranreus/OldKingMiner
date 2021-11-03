@@ -10,11 +10,4 @@ public interface PlayerAction {
      */
     boolean move(int step);
 
-    /**
-     * 玩家下放钩子
-     *
-     * @return boolean
-     */
-    boolean dropTheHook();
-
 }

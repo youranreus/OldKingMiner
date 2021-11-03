@@ -1,6 +1,9 @@
 package com.company.model.entity;
 
 import com.company.model.action.PlayerAction;
+import com.company.model.line.line;
+
+import java.awt.*;
 
 public class player extends item implements PlayerAction {
 
@@ -15,9 +18,9 @@ public class player extends item implements PlayerAction {
     private final int hp;
 
     /**
-     * 玩家钩子
+     * 玩家红线
      */
-    private final hook phook;
+    private final line line;
 
     /**
      * player constructor
@@ -28,11 +31,19 @@ public class player extends item implements PlayerAction {
      */
     public player(String _name, int id) {
         super(_name, 2, 1, id);
-        phook = new hook(_name, this.x, this.y);
         this.balance = 0;
         this.hp = 100;
         this.setY(90);
         this.setX(400);
+        this.line = new line(this.getX(), this.getY());
+    }
+
+    /**
+     * 绘制
+     * @param g 画笔
+     */
+    public void painSelf(Graphics g) {
+
     }
 
     /**
@@ -63,13 +74,4 @@ public class player extends item implements PlayerAction {
         return super.move(this.getX() + step, this.getY());
     }
 
-    /**
-     * 玩家下放钩子
-     *
-     * @return boolean
-     */
-    @Override
-    public boolean dropTheHook() {
-        return this.phook.drop();
-    }
 }
