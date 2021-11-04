@@ -6,6 +6,8 @@ import com.company.utils.config;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class GUIController extends JFrame {
 
@@ -27,6 +29,15 @@ public class GUIController extends JFrame {
         testPlayer = new player("player1", 1001);
         bg = new background();
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+        addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                if(e.getButton() == 1)
+                    testPlayer.dropTheLine();
+            }
+        });
 
         while (true) {
             repaint();

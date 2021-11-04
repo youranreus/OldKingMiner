@@ -10,4 +10,9 @@ public interface PlayerAction {
      */
     boolean move(int step);
 
+    /**
+     * 玩家放下钩子（绳子）
+     */
+    void dropTheLine();
+
 }
