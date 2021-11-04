@@ -44,7 +44,7 @@ public class line {
     public line(int _x, int _y) {
         this.x = _x;
         this.endx = this.x;
-        this.y = _y;
+        this.y = _y + 100;
         this.endy = this.y + 100;
         this.length = 100.0;
         this.rad = 0;
