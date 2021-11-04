@@ -97,4 +97,11 @@ public class player extends item implements PlayerAction {
         return super.move(this.getX() + step, this.getY());
     }
 
+    /**
+     * 玩家放下钩子（绳子）
+     */
+    public void dropTheLine() {
+        if(this.line.state!=1)
+            this.line.state = 1;
+    }
 }

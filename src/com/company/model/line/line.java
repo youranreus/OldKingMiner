@@ -37,6 +37,14 @@ public class line {
     public double rad;
 
     /**
+     * 状态
+     * 0: 摆动
+     * 1: 放下
+     * 2: 回收
+     */
+    public int state;
+
+    /**
      * 方向修正
      */
     public int direction;
@@ -48,6 +56,7 @@ public class line {
         this.endy = this.y + 100;
         this.length = 100.0;
         this.rad = 0;
+        this.state = 0;
     }
 
     /**
@@ -57,12 +66,29 @@ public class line {
      */
     public void paintSelf(Graphics g) {
 
-        if (rad < 0.1)
-            direction = 1;
-        else if (rad > 0.9)
-            direction = -1;
-        rad = rad + 0.005 * direction;
-
+        switch (this.state) {
+            case 0:
+                if (rad < 0.1)
+                    direction = 1;
+                else if (rad > 0.9)
+                    direction = -1;
+                rad = rad + 0.005 * direction;
+                break;
+            case 1:
+                if (length <= 500)
+                    length += 10;
+                else
+                    this.state = 2;
+                break;
+            case 2:
+                if (length <= 100)
+                    this.state = 0;
+                else
+                    length -= 10;
+                break;
+            default:
+                break;
+        }
         //计算末尾坐标
         this.endx = (int) (this.x + length * Math.cos(rad * Math.PI));
         this.endy = (int) (this.y + length * Math.sin(rad * Math.PI));
