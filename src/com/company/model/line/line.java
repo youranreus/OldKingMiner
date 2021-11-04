@@ -47,7 +47,7 @@ public class line {
         this.y = _y;
         this.endy = this.y + 100;
         this.length = 100.0;
-        this.rad = 0.5;
+        this.rad = 0;
     }
 
     /**
