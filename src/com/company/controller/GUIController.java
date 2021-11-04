@@ -1,11 +1,11 @@
 package com.company.controller;
 
+import com.company.model.entity.player;
 import com.company.model.map.background;
 import com.company.utils.config;
 
 import javax.swing.*;
 import java.awt.*;
-import com.company.model.line.line;
 
 public class GUIController extends JFrame {
 
@@ -14,7 +14,7 @@ public class GUIController extends JFrame {
      */
     background bg;
 
-    line testline;
+    player testPlayer;
 
     /**
      * 界面初始化
@@ -24,9 +24,18 @@ public class GUIController extends JFrame {
         this.setSize(800, 800);
         this.setLocationRelativeTo(null);
         this.setTitle("老金矿工@" + config.VERSION);
-        testline = new line(400, 90);
+        testPlayer = new player("player1", 1001);
         bg = new background();
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+        while (true) {
+            repaint();
+            try {
+                Thread.sleep(30);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     /**
@@ -37,7 +46,7 @@ public class GUIController extends JFrame {
     @Override
     public void paint(Graphics g) {
         bg.painSelf(g);
-        testline.paintSelf(g);
+        testPlayer.painSelf(g);
     }
 
     /**
