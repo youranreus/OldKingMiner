@@ -17,6 +17,8 @@ public class rock extends mineral{
         super(_name, _id, _size);
         this.size = _size;
         this.img = Toolkit.getDefaultToolkit().getImage("assets/img/rock1.png");
+        this.setHeight(71);
+        this.setWidth(71);
         if (size == 1)
             this.price = 10;
         else if (size == 2)
