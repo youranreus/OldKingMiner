@@ -40,6 +40,6 @@ public class gold extends mineral {
     @Override
     void generate() {
         super.generate();
-        this.setY(utils.random(200, 800));
+        this.setY(utils.random(300, 800));
     }
 }

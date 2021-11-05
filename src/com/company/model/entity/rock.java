@@ -33,6 +33,6 @@ public class rock extends mineral{
     @Override
     void generate() {
         super.generate();
-        this.setY(utils.random(100, 800));
+        this.setY(utils.random(200, 800));
     }
 }
