@@ -18,6 +18,8 @@ public class GUIController extends JFrame {
 
     player testPlayer;
 
+    Image offsetCanvasImage;
+
     /**
      * 界面初始化
      */
@@ -34,7 +36,7 @@ public class GUIController extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                if(e.getButton() == 1)
+                if (e.getButton() == 1)
                     testPlayer.dropTheLine();
             }
         });
@@ -56,8 +58,13 @@ public class GUIController extends JFrame {
      */
     @Override
     public void paint(Graphics g) {
-        bg.painSelf(g);
-        testPlayer.painSelf(g);
+        //双缓存，基准画布
+        this.offsetCanvasImage = this.createImage(800, 800);
+        Graphics g2 = this.offsetCanvasImage.getGraphics();
+
+        bg.painSelf(g2);
+        testPlayer.painSelf(g2);
+        g.drawImage(this.offsetCanvasImage, 0, 0, null);
     }
 
     /**
