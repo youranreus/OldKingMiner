@@ -42,7 +42,7 @@ public class map implements MapAction {
         int rand = utils.random(30, 40 + this.level);
         this.items = new mineral[rand];
         for (int i = 0; i < rand; i++) {
-            int type = utils.random(1, 3);
+            int type = utils.random(1, 4);
             switch (type) {
                 case 1 -> this.items[i] = new rock("岩石", id_counter + i, utils.random(1, 3));
                 case 2 -> this.items[i] = new gold("金矿", id_counter + i, utils.random(1, 3));

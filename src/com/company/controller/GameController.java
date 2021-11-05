@@ -121,6 +121,8 @@ public class GameController extends BaseController {
         if(this.playerNum == 2) {
             this.players[0].setX(224);
             this.players[1].setX(424);
+            this.players[0].resetTheLine();
+            this.players[1].resetTheLine();
         }
 
         if (this.customerGame)

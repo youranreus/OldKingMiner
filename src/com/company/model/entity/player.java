@@ -54,9 +54,9 @@ public class player extends item implements PlayerAction {
         super(_name, 2, 1, id);
         this.balance = 0;
         this.hp = 100;
-        this.setY(_y-76);
-        this.setX(_x-72);
-        this.line = new line(this.x+72, this.y+76);
+        this.setY(_y - 76);
+        this.setX(_x - 72);
+        this.line = new line(this.x + 72, this.y + 76);
     }
 
     /**
@@ -101,7 +101,23 @@ public class player extends item implements PlayerAction {
      * 玩家放下钩子（绳子）
      */
     public void dropTheLine() {
-        if(this.line.state!=1)
+        if (this.line.state != 1)
             this.line.state = 1;
+    }
+
+    /**
+     * 重置玩家钩子起点坐标
+     */
+    public void resetTheLine() {
+        this.line.x = this.x + 72;
+        this.line.y = this.y + 76;
+    }
+
+    /**
+     * 获取玩家line
+     * @return line line
+     */
+    public line getLine() {
+        return this.line;
     }
 }

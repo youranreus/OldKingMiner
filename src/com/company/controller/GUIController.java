@@ -48,14 +48,16 @@ public class GUIController extends JFrame {
         this.setLocationRelativeTo(null);
         bg = new background();
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-//        addMouseListener(new MouseAdapter() {
-//            @Override
-//            public void mouseClicked(MouseEvent e) {
-//            super.mouseClicked(e);
-//            if (e.getButton() == 1)
-//                testPlayer.dropTheLine();
-//            }
-//        });
+        addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                if (e.getButton() == 1)
+                    players[0].dropTheLine();
+                if(e.getButton() == 3)
+                    players[1].dropTheLine();
+            }
+        });
 
         while (true) {
             repaint();
