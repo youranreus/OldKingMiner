@@ -2,6 +2,8 @@ package com.company.model.entity;
 
 import com.company.utils.utils;
 
+import java.awt.*;
+
 public class rock extends mineral{
 
     /**
@@ -14,6 +16,7 @@ public class rock extends mineral{
     public rock(String _name, int _id, int _size) {
         super(_name, _id, _size);
         this.size = _size;
+        this.img = Toolkit.getDefaultToolkit().getImage("assets/img/rock1.png");
         if (size == 1)
             this.price = 10;
         else if (size == 2)

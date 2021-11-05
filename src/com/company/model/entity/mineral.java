@@ -2,6 +2,8 @@ package com.company.model.entity;
 
 import com.company.utils.utils;
 
+import java.awt.*;
+
 public class mineral extends item{
 
     /**
@@ -16,6 +18,11 @@ public class mineral extends item{
      * 矿物价值
      */
     protected int price;
+
+    /**
+     * 矿物图片
+     */
+    protected Image img;
 
     /**
      * gold constructor
@@ -51,6 +58,13 @@ public class mineral extends item{
      */
     void generate() {
         this.setX(utils.random(0,800));
+    }
+
+    /**
+     * 绘制
+     */
+    void painSelf(Graphics g) {
+        g.drawImage(img, this.x, this.y,null);
     }
 
 }
