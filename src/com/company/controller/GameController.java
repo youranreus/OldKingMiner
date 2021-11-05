@@ -3,6 +3,8 @@ package com.company.controller;
 import com.company.model.map.map;
 import com.company.model.entity.player;
 
+import java.util.Arrays;
+
 public class GameController extends BaseController {
 
     /**
@@ -115,6 +117,12 @@ public class GameController extends BaseController {
         for (int i = 0; i < playerNum; i++)
             this.players[i] = new player("玩家" + i, 1000 + i);
 
+        //两人时就自动移开
+        if(this.playerNum == 2) {
+            this.players[0].setX(224);
+            this.players[1].setX(424);
+        }
+
         if (this.customerGame)
             return;
         this.time = this.gameMode == 2 ? 999999 : 180 - this.level;
@@ -214,4 +222,21 @@ public class GameController extends BaseController {
         return total;
     }
 
+    /**
+     * 获取地图信息
+     *
+     * @return map 游戏地图
+     */
+    public map getGameMap() {
+        return this.gameMap;
+    }
+
+    /**
+     * 获取玩家信息
+     *
+     * @return player[] 玩家集合
+     */
+    public player[] getPlayers() {
+        return players;
+    }
 }

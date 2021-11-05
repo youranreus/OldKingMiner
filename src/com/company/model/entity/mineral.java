@@ -63,7 +63,7 @@ public class mineral extends item{
     /**
      * 绘制
      */
-    void painSelf(Graphics g) {
+    public void painSelf(Graphics g) {
         g.drawImage(img, this.x, this.y,null);
     }
 

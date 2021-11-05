@@ -102,4 +102,13 @@ public class map implements MapAction {
             result.append("[").append(i.getName()).append("#").append(i.getId()).append("]\n").append("价格: ").append(i.getPrice()).append("\n大小: ").append(i.getSize()).append("\n位置：(").append(i.getX()).append(", ").append(i.getY()).append(")\n");
         return result.toString();
     }
+
+    /**
+     * 获取地图中的物体
+     *
+     * @return mineral[] 物体集合
+     */
+    public mineral[] getItems() {
+        return this.items;
+    }
 }
