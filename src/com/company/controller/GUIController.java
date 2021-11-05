@@ -3,14 +3,11 @@ package com.company.controller;
 import com.company.model.entity.mineral;
 import com.company.model.entity.player;
 import com.company.model.map.background;
-import com.company.model.map.map;
-import com.company.utils.config;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.Arrays;
 
 public class GUIController extends JFrame {
 
