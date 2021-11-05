@@ -29,7 +29,7 @@ public class player extends item implements PlayerAction {
 
     /**
      * player constructor
-     * 玩家高2，宽1，出生于中点(90, 400) (偏差值72,76)
+     * 玩家高2，宽1，出生于中点(400, 150) (偏差值88，104)
      *
      * @param _name 玩家名
      * @param id    玩家id
@@ -38,9 +38,9 @@ public class player extends item implements PlayerAction {
         super(_name, 2, 1, id);
         this.balance = 0;
         this.hp = 100;
-        this.setY(18);
-        this.setX(324);
-        this.line = new line(400, 90);
+        this.setY(46);
+        this.setX(312);
+        this.line = new line(400, 200);
     }
 
     /**
@@ -54,9 +54,9 @@ public class player extends item implements PlayerAction {
         super(_name, 2, 1, id);
         this.balance = 0;
         this.hp = 100;
-        this.setY(_y - 76);
-        this.setX(_x - 72);
-        this.line = new line(this.x + 72, this.y + 76);
+        this.setY(_y - 104);
+        this.setX(_x - 88);
+        this.line = new line(this.x + 88, this.y + 104);
     }
 
     /**
@@ -109,8 +109,8 @@ public class player extends item implements PlayerAction {
      * 重置玩家钩子起点坐标
      */
     public void resetTheLine() {
-        this.line.x = this.x + 72;
-        this.line.y = this.y + 76;
+        this.line.x = this.x + 88;
+        this.line.y = this.y + 104;
     }
 
     /**

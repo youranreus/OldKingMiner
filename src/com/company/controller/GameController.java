@@ -119,8 +119,8 @@ public class GameController extends BaseController {
 
         //两人时就自动移开
         if(this.playerNum == 2) {
-            this.players[0].setX(224);
-            this.players[1].setX(424);
+            this.players[0].setX(212);
+            this.players[1].setX(412);
             this.players[0].resetTheLine();
             this.players[1].resetTheLine();
         }
