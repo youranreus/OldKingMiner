@@ -135,16 +135,14 @@ public class line {
                     length -= this.speed;
                 break;
             case 3:
-                if (length <= 100)
-                {
+                if (length <= 100) {
                     this.minerals[this.mineralCaughtIndex].setX(-150);
                     this.minerals[this.mineralCaughtIndex].setY(-150);
                     this.state = 0;
                     this.speed = 20;
-                }
-                else {
+                } else {
                     length -= this.speed;
-                    this.minerals[this.mineralCaughtIndex].setX(this.endx - this.minerals[this.mineralCaughtIndex].getWidth()/2);
+                    this.minerals[this.mineralCaughtIndex].setX(this.endx - this.minerals[this.mineralCaughtIndex].getWidth() / 2);
                     this.minerals[this.mineralCaughtIndex].setY(this.endy);
                 }
                 break;
@@ -156,7 +154,9 @@ public class line {
         this.endy = (int) (this.y + length * Math.sin(rad * Math.PI));
 
         g.setColor(Color.red);
+        g.drawLine(this.x - 1, this.y, this.endx - 1, this.endy);
         g.drawLine(this.x, this.y, this.endx, this.endy);
+        g.drawLine(this.x + 1, this.y, this.endx + 1, this.endy);
     }
 
     /**
