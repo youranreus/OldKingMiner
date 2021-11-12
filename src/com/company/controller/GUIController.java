@@ -37,6 +37,11 @@ public class GUIController extends JFrame {
     mineral[] minerals;
 
     /**
+     * 绘图线程
+     */
+    GUIThread thread;
+
+    /**
      * 界面初始化
      */
     void launch() {
@@ -58,14 +63,7 @@ public class GUIController extends JFrame {
             }
         });
 
-        while (true) {
-            repaint();
-            try {
-                Thread.sleep(10);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
+        this.thread.start();
     }
 
     /**
@@ -95,7 +93,29 @@ public class GUIController extends JFrame {
         this.game = _game;
         this.players = this.game.getPlayers();
         this.minerals = this.game.getGameMap().getItems();
+        this.thread = new GUIThread();
+        this.thread.setController(this);
         this.launch();
     }
 
+}
+
+class GUIThread extends Thread {
+
+    GUIController controller;
+
+    public void setController(GUIController c) {
+        controller = c;
+    }
+
+    public void run() {
+        while(true) {
+            controller.repaint();
+            try {
+                sleep(10);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }
