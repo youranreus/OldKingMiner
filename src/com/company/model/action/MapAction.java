@@ -1,6 +1,7 @@
 package com.company.model.action;
 
 import com.company.model.entity.item;
+import com.company.model.entity.mineral;
 
 public interface MapAction {
 
@@ -63,4 +64,10 @@ public interface MapAction {
      */
     boolean isEdge(int _x, int _y);
 
+    /**
+     * 获取地图中的物体
+     *
+     * @return mineral[] 物体集合
+     */
+    mineral[] getItems();
 }
