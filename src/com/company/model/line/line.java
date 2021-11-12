@@ -58,6 +58,11 @@ public class line {
     private mineral[] minerals;
 
     /**
+     * 已经抓取的矿物的数组索引
+     */
+    private int mineralCaughtIndex;
+
+    /**
      * line constructor
      *
      * @param _x x
@@ -74,11 +79,15 @@ public class line {
     }
 
     private void getSomething() {
+        int index = 0;
         for (mineral m : this.minerals) {
             if (!m.isCaught() && this.endx > m.getX() && this.endx < m.getX() + m.getWidth() && this.endy > m.getY() && this.endy < m.getY() + m.getHeight()) {
                 System.out.println("抓到了[" + m.getName() + "]" + m.getId() + ", 价值: " + m.getPrice());
                 m.getCaught();
+                this.state = 3;
+                this.mineralCaughtIndex = index;
             }
+            index++;
         }
     }
 
@@ -108,6 +117,19 @@ public class line {
                     this.state = 0;
                 else
                     length -= 10;
+                break;
+            case 3:
+                if (length <= 100)
+                {
+                    this.minerals[this.mineralCaughtIndex].setX(-150);
+                    this.minerals[this.mineralCaughtIndex].setY(-150);
+                    this.state = 0;
+                }
+                else {
+                    length -= 10;
+                    this.minerals[this.mineralCaughtIndex].setX(this.endx - this.minerals[this.mineralCaughtIndex].getWidth()/2);
+                    this.minerals[this.mineralCaughtIndex].setY(this.endy);
+                }
                 break;
             default:
                 break;
