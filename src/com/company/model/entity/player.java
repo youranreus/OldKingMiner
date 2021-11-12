@@ -10,7 +10,7 @@ public class player extends item implements PlayerAction {
     /**
      * 玩家余额
      */
-    private final int balance;
+    private int balance;
 
     /**
      * 玩家生命值
@@ -41,6 +41,7 @@ public class player extends item implements PlayerAction {
         this.setY(46);
         this.setX(312);
         this.line = new line(400, 200);
+        this.line.setOwner(this);
     }
 
     /**
@@ -57,6 +58,7 @@ public class player extends item implements PlayerAction {
         this.setY(_y - 104);
         this.setX(_x - 88);
         this.line = new line(this.x + 88, this.y + 104);
+        this.line.setOwner(this);
     }
 
     /**
@@ -127,5 +129,14 @@ public class player extends item implements PlayerAction {
      */
     public void setLineMineral(mineral[] _m) {
         this.line.setMinerals(_m);
+    }
+
+    /**
+     * 设置余额
+     *
+     * @param value int
+     */
+    public void setBalance(int value) {
+        this.balance = value;
     }
 }

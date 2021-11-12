@@ -1,6 +1,7 @@
 package com.company.model.line;
 
 import com.company.model.entity.mineral;
+import com.company.model.entity.player;
 
 import java.awt.*;
 
@@ -70,6 +71,11 @@ public class line {
      * 钻石: 8
      */
     private int speed;
+
+    /**
+     * 钩子主人
+     */
+    private player owner;
 
     /**
      * line constructor
@@ -144,6 +150,7 @@ public class line {
                     length -= this.speed;
                     this.minerals[this.mineralCaughtIndex].setX(this.endx - this.minerals[this.mineralCaughtIndex].getWidth() / 2);
                     this.minerals[this.mineralCaughtIndex].setY(this.endy);
+                    this.owner.setBalance(this.owner.getBalance() + this.minerals[this.mineralCaughtIndex].getPrice());
                 }
                 break;
             default:
@@ -166,5 +173,14 @@ public class line {
      */
     public void setMinerals(mineral[] _m) {
         this.minerals = _m;
+    }
+
+    /**
+     * 设置主任
+     *
+     * @param _owner player
+     */
+    public void setOwner(player _owner) {
+        this.owner  = _owner;
     }
 }
