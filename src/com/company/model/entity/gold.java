@@ -18,14 +18,14 @@ public class gold extends mineral {
         this.size = _size;
         if (size == 1) {
             this.price = 100;
-            this.img = Toolkit.getDefaultToolkit().getImage("assets/img/gold0.gif");
-            this.setHeight(36);
-            this.setWidth(36);
+            this.img = Toolkit.getDefaultToolkit().getImage("assets/img/gold0.png");
+            this.setHeight(32);
+            this.setWidth(23);
         } else if (size == 2) {
             this.price = 300;
-            this.img = Toolkit.getDefaultToolkit().getImage("assets/img/gold1.gif");
-            this.setHeight(52);
-            this.setWidth(52);
+            this.img = Toolkit.getDefaultToolkit().getImage("assets/img/gold1.png");
+            this.setHeight(42);
+            this.setWidth(64);
         } else {
             this.price = 600;
             this.img = Toolkit.getDefaultToolkit().getImage("assets/img/gold2.gif");
