@@ -120,4 +120,12 @@ public class player extends item implements PlayerAction {
     public line getLine() {
         return this.line;
     }
+
+    /**
+     * 设置绳子的矿物检测
+     * @param _m mineral
+     */
+    public void setLineMineral(mineral[] _m) {
+        this.line.setMinerals(_m);
+    }
 }

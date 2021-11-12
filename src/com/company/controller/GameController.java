@@ -3,8 +3,6 @@ package com.company.controller;
 import com.company.model.map.map;
 import com.company.model.entity.player;
 
-import java.util.Arrays;
-
 public class GameController extends BaseController {
 
     /**
@@ -113,9 +111,14 @@ public class GameController extends BaseController {
      * maxScore 为从 (500+level*120) 分
      */
     private void init() {
+        this.gameMap.init();
         this.players = new player[this.playerNum];
         for (int i = 0; i < playerNum; i++)
+        {
             this.players[i] = new player("玩家" + i, 1000 + i);
+            this.players[i].setLineMineral(this.gameMap.getItems());
+        }
+
 
         //两人时就自动移开
         if(this.playerNum == 2) {
@@ -129,7 +132,6 @@ public class GameController extends BaseController {
             return;
         this.time = this.gameMode == 2 ? 999999 : 180 - this.level;
         this.maxScore = 500 + level * 120;
-        this.gameMap.init();
     }
 
     /**

@@ -1,5 +1,7 @@
 package com.company.model.line;
 
+import com.company.model.entity.mineral;
+
 import java.awt.*;
 
 public class line {
@@ -49,6 +51,17 @@ public class line {
      */
     public int direction;
 
+    /**
+     * 矿物集合，用于抓取判定
+     */
+    private mineral[] minerals;
+
+    /**
+     * line constructor
+     *
+     * @param _x x
+     * @param _y y
+     */
     public line(int _x, int _y) {
         this.x = _x;
         this.endx = this.x;
@@ -59,13 +72,20 @@ public class line {
         this.state = 0;
     }
 
+    private void getSomething() {
+        for (mineral m : this.minerals) {
+            if (this.endx > m.getX() && this.endx < m.getX() + m.getWidth() && this.endy > m.getY() && this.endy < m.getY() + m.getHeight())
+                System.out.println("抓到了[" + m.getClass() + "]" + m.getId() + ", 价值: " + m.getPrice());
+        }
+    }
+
     /**
      * 绘制
      *
      * @param g 画笔
      */
     public void paintSelf(Graphics g) {
-
+        getSomething();
         switch (this.state) {
             case 0:
                 if (rad < 0.1)
@@ -95,5 +115,14 @@ public class line {
 
         g.setColor(Color.red);
         g.drawLine(this.x, this.y, this.endx, this.endy);
+    }
+
+    /**
+     * 设置矿物
+     *
+     * @param _m mineral[]
+     */
+    public void setMinerals(mineral[] _m) {
+        this.minerals = _m;
     }
 }

@@ -1,5 +1,7 @@
 package com.company.model.action;
 
+import com.company.model.entity.mineral;
+
 public interface PlayerAction {
 
     /**
@@ -14,5 +16,10 @@ public interface PlayerAction {
      * 玩家放下钩子（绳子）
      */
     void dropTheLine();
+
+    /**
+     * 设置绳子的矿物检测
+     */
+    void setLineMineral(mineral[] _m);
 
 }
