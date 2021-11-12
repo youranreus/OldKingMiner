@@ -50,9 +50,11 @@ public class GUIController extends JFrame {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 if (e.getButton() == 1)
-                    players[0].dropTheLine();
+                    if(players[0].getLine().state == 0)
+                        players[0].dropTheLine();
                 if(e.getButton() == 3)
-                    players[1].dropTheLine();
+                    if(players[1].getLine().state == 0)
+                        players[1].dropTheLine();
             }
         });
 
