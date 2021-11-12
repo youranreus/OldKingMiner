@@ -75,7 +75,7 @@ public class line {
                 rad = rad + 0.005 * direction;
                 break;
             case 1:
-                if (length <= 500)
+                if (length <= 1000)
                     length += 10;
                 else
                     this.state = 2;
