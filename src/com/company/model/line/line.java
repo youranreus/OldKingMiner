@@ -63,6 +63,15 @@ public class line {
     private int mineralCaughtIndex;
 
     /**
+     * 抓取速度
+     * 空抓: 10
+     * 金矿: 7
+     * 岩石: 3
+     * 钻石: 8
+     */
+    private int speed;
+
+    /**
      * line constructor
      *
      * @param _x x
@@ -76,6 +85,8 @@ public class line {
         this.length = 100.0;
         this.rad = 0;
         this.state = 0;
+        this.mineralCaughtIndex = -1;
+        this.speed = 10;
     }
 
     private void getSomething() {
@@ -86,6 +97,11 @@ public class line {
                 m.getCaught();
                 this.state = 3;
                 this.mineralCaughtIndex = index;
+                switch (m.getName()) {
+                    case "金矿" -> this.speed = 7;
+                    case "钻石" -> this.speed = 8;
+                    case "岩石" -> this.speed = 3;
+                }
             }
             index++;
         }
@@ -108,7 +124,7 @@ public class line {
                 break;
             case 1:
                 if (length <= 1000)
-                    length += 10;
+                    length += this.speed;
                 else
                     this.state = 2;
                 break;
@@ -116,7 +132,7 @@ public class line {
                 if (length <= 100)
                     this.state = 0;
                 else
-                    length -= 10;
+                    length -= this.speed;
                 break;
             case 3:
                 if (length <= 100)
@@ -124,9 +140,10 @@ public class line {
                     this.minerals[this.mineralCaughtIndex].setX(-150);
                     this.minerals[this.mineralCaughtIndex].setY(-150);
                     this.state = 0;
+                    this.speed = 10;
                 }
                 else {
-                    length -= 10;
+                    length -= this.speed;
                     this.minerals[this.mineralCaughtIndex].setX(this.endx - this.minerals[this.mineralCaughtIndex].getWidth()/2);
                     this.minerals[this.mineralCaughtIndex].setY(this.endy);
                 }
