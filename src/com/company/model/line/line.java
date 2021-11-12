@@ -86,7 +86,7 @@ public class line {
         this.rad = 0;
         this.state = 0;
         this.mineralCaughtIndex = -1;
-        this.speed = 10;
+        this.speed = 20;
     }
 
     private void getSomething() {
@@ -99,7 +99,7 @@ public class line {
                 this.mineralCaughtIndex = index;
                 switch (m.getName()) {
                     case "金矿" -> this.speed = 7;
-                    case "钻石" -> this.speed = 8;
+                    case "钻石" -> this.speed = 5;
                     case "岩石" -> this.speed = 3;
                 }
             }
@@ -140,7 +140,7 @@ public class line {
                     this.minerals[this.mineralCaughtIndex].setX(-150);
                     this.minerals[this.mineralCaughtIndex].setY(-150);
                     this.state = 0;
-                    this.speed = 10;
+                    this.speed = 20;
                 }
                 else {
                     length -= this.speed;
