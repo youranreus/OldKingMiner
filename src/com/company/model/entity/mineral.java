@@ -25,6 +25,11 @@ public class mineral extends item{
     protected Image img;
 
     /**
+     * 被抓取状态
+     */
+    protected boolean caught;
+
+    /**
      * mineral constructor
      *
      * @param _name 物品名
@@ -68,4 +73,19 @@ public class mineral extends item{
         g.drawImage(img, this.x, this.y,null);
     }
 
+    /**
+     * 矿物被抓取
+     */
+    public void getCaught() {
+        this.caught = true;
+    }
+
+    /**
+     * 是否被抓取
+     *
+     * @return boolean
+     */
+    public boolean isCaught() {
+        return this.caught;
+    }
 }

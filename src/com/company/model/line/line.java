@@ -43,6 +43,7 @@ public class line {
      * 0: 摆动
      * 1: 放下
      * 2: 回收
+     * 3: 抓取返回
      */
     public int state;
 
@@ -74,8 +75,10 @@ public class line {
 
     private void getSomething() {
         for (mineral m : this.minerals) {
-            if (this.endx > m.getX() && this.endx < m.getX() + m.getWidth() && this.endy > m.getY() && this.endy < m.getY() + m.getHeight())
-                System.out.println("抓到了[" + m.getClass() + "]" + m.getId() + ", 价值: " + m.getPrice());
+            if (!m.isCaught() && this.endx > m.getX() && this.endx < m.getX() + m.getWidth() && this.endy > m.getY() && this.endy < m.getY() + m.getHeight()) {
+                System.out.println("抓到了[" + m.getName() + "]" + m.getId() + ", 价值: " + m.getPrice());
+                m.getCaught();
+            }
         }
     }
 
