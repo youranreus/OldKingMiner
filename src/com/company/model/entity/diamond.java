@@ -17,8 +17,8 @@ public class diamond extends mineral{
         super(_name, _id, _size);
         this.size = _size;
         this.img = Toolkit.getDefaultToolkit().getImage("assets/img/diamond.png");
-        this.setHeight(49);
-        this.setWidth(64);
+        this.setHeight(32);
+        this.setWidth(25);
         if (size == 1)
             this.price = 1000;
         else if (size == 2)
