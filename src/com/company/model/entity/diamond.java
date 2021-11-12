@@ -16,6 +16,7 @@ public class diamond extends mineral{
     public diamond(String _name, int _id, int _size) {
         super(_name, _id, _size);
         this.size = _size;
+        this.name = "钻石";
         this.img = Toolkit.getDefaultToolkit().getImage("assets/img/diamond.png");
         this.setHeight(32);
         this.setWidth(25);

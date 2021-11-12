@@ -25,7 +25,7 @@ public class mineral extends item{
     protected Image img;
 
     /**
-     * gold constructor
+     * mineral constructor
      *
      * @param _name 物品名
      * @param _id id
@@ -34,6 +34,7 @@ public class mineral extends item{
     mineral(String _name, int _id, int _size) {
         super(_name, 0, 0, _id);
         this.size = _size;
+        this.name = "矿物";
         this.generate();
     }
 

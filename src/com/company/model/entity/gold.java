@@ -16,6 +16,7 @@ public class gold extends mineral {
     public gold(String _name, int _id, int _size) {
         super(_name, _id, _size);
         this.size = _size;
+        this.name = "金矿";
         if (size == 1) {
             this.price = 100;
             this.img = Toolkit.getDefaultToolkit().getImage("assets/img/gold0.png");

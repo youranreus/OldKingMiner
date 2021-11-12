@@ -16,6 +16,7 @@ public class rock extends mineral{
     public rock(String _name, int _id, int _size) {
         super(_name, _id, _size);
         this.size = _size;
+        this.name = "岩石";
         this.img = Toolkit.getDefaultToolkit().getImage("assets/img/rock1.png");
         this.setHeight(71);
         this.setWidth(71);
