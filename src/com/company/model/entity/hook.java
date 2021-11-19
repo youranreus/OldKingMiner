@@ -1,11 +1,18 @@
 package com.company.model.entity;
 
+import java.awt.*;
+
 public class hook extends item{
 
     /**
      * 钩子下落中
      */
     private boolean dropping;
+
+    /**
+     * 钩爪图片
+     */
+    private Image bg = Toolkit.getDefaultToolkit().getImage("assets/img/hook.png");
 
     /**
      * hook constructor.
@@ -18,9 +25,9 @@ public class hook extends item{
     public hook(String _name, int _x, int _y) {
         super(_name+"`s hook");
         setX(_x);
-        setY(_y - 1);
-        setWidth(1);
-        setHeight(1);
+        setY(_y);
+        setWidth(19);
+        setHeight(32);
         this.dropping = false;
     }
 
@@ -35,6 +42,23 @@ public class hook extends item{
 
         this.dropping = true;
         return true;
+    }
+
+    /**
+     * 绘制
+     */
+    public void painSelf(Graphics g) {
+        g.drawImage(bg, this.x, this.y,null);
+    }
+
+    /**
+     * 设置x,y
+     * @param x x
+     * @param y y
+     */
+    public void setXY(int x, int y) {
+        this.x = x - 9;
+        this.y = y - 2;
     }
 
 }

@@ -1,5 +1,6 @@
 package com.company.model.line;
 
+import com.company.model.entity.hook;
 import com.company.model.entity.mineral;
 import com.company.model.entity.player;
 
@@ -78,6 +79,11 @@ public class line {
     private player owner;
 
     /**
+     * 钩爪
+     */
+    private hook hook;
+
+    /**
      * line constructor
      *
      * @param _x x
@@ -93,6 +99,7 @@ public class line {
         this.state = 0;
         this.mineralCaughtIndex = -1;
         this.speed = 20;
+        this.hook = new hook("player", this.endx, this.endy);
     }
 
     private void getSomething() {
@@ -164,6 +171,8 @@ public class line {
         g.drawLine(this.x - 1, this.y, this.endx - 1, this.endy);
         g.drawLine(this.x, this.y, this.endx, this.endy);
         g.drawLine(this.x + 1, this.y, this.endx + 1, this.endy);
+        this.hook.setXY(this.endx, this.endy);
+        this.hook.painSelf(g);
     }
 
     /**
