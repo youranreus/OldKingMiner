@@ -83,7 +83,8 @@ public class GUIController extends JFrame {
 
         for (player p : this.players)
             p.painSelf(g2);
-        this.drawString("Score: " + this.game.getTotalScore(), g2, 30, 70, 30);
+        this.drawString("Score: " + this.game.getTotalScore(), g2, 30, 70, 30, Color.WHITE);
+        this.drawString("Level: " + this.game.getLevel(), g2, 630, 70, 30, Color.WHITE);
         g.drawImage(this.offsetCanvasImage, 0, 0, null);
     }
 
@@ -93,8 +94,8 @@ public class GUIController extends JFrame {
      * @param toDraw 要绘制的字符串
      * @param g      画笔
      */
-    public void drawString(String toDraw, Graphics g, int x, int y, int size) {
-        g.setColor(Color.WHITE);
+    public void drawString(String toDraw, Graphics g, int x, int y, int size, Color color) {
+        g.setColor(color);
         g.setFont(new Font("jetbrains mono", Font.ITALIC, size));
         g.drawString(toDraw, x, y);
     }
