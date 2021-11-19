@@ -107,7 +107,6 @@ public class line {
         for (mineral m : this.minerals) {
             if (!m.isCaught() && this.endx > m.getX() && this.endx < m.getX() + m.getWidth() && this.endy > m.getY() && this.endy < m.getY() + m.getHeight()) {
                 System.out.println("抓到了[" + m.getName() + "]" + m.getId() + ", 价值: " + m.getPrice());
-                m.getCaught();
                 this.state = 3;
                 this.mineralCaughtIndex = index;
                 switch (m.getName()) {
@@ -115,7 +114,6 @@ public class line {
                     case "钻石" -> this.speed = 5;
                     case "岩石" -> this.speed = 3;
                 }
-                this.owner.setBalance(this.owner.getBalance() + this.minerals[this.mineralCaughtIndex].getPrice());
             }
             index++;
         }
@@ -154,6 +152,8 @@ public class line {
                     this.minerals[this.mineralCaughtIndex].setY(-150);
                     this.state = 0;
                     this.speed = 20;
+                    this.owner.setBalance(this.owner.getBalance() + this.minerals[this.mineralCaughtIndex].getPrice());
+                    this.minerals[this.mineralCaughtIndex].getCaught();
                 } else {
                     length -= this.speed;
                     this.minerals[this.mineralCaughtIndex].setX(this.endx - this.minerals[this.mineralCaughtIndex].getWidth() / 2);
