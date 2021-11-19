@@ -55,10 +55,10 @@ public class GUIController extends JFrame {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 if (e.getButton() == 1)
-                    if(players[0].getLine().state == 0)
+                    if (players[0].getLine().state == 0)
                         players[0].dropTheLine();
-                if(e.getButton() == 3)
-                    if(players[1].getLine().state == 0)
+                if (e.getButton() == 3)
+                    if (players[1].getLine().state == 0)
                         players[1].dropTheLine();
             }
         });
@@ -83,7 +83,20 @@ public class GUIController extends JFrame {
 
         for (player p : this.players)
             p.painSelf(g2);
+        this.drawString("Score: " + this.game.getTotalScore(), g2, 30, 70, 30);
         g.drawImage(this.offsetCanvasImage, 0, 0, null);
+    }
+
+    /**
+     * 绘制文字
+     *
+     * @param toDraw 要绘制的字符串
+     * @param g      画笔
+     */
+    public void drawString(String toDraw, Graphics g, int x, int y, int size) {
+        g.setColor(Color.WHITE);
+        g.setFont(new Font("jetbrains mono", Font.ITALIC, size));
+        g.drawString(toDraw, x, y);
     }
 
     /**
@@ -109,7 +122,7 @@ class GUIThread extends Thread {
     }
 
     public void run() {
-        while(true) {
+        while (true) {
             controller.repaint();
             try {
                 sleep(10);
