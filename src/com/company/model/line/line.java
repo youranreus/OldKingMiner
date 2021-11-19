@@ -108,6 +108,7 @@ public class line {
                     case "钻石" -> this.speed = 5;
                     case "岩石" -> this.speed = 3;
                 }
+                this.owner.setBalance(this.owner.getBalance() + this.minerals[this.mineralCaughtIndex].getPrice());
             }
             index++;
         }
@@ -150,7 +151,6 @@ public class line {
                     length -= this.speed;
                     this.minerals[this.mineralCaughtIndex].setX(this.endx - this.minerals[this.mineralCaughtIndex].getWidth() / 2);
                     this.minerals[this.mineralCaughtIndex].setY(this.endy);
-                    this.owner.setBalance(this.owner.getBalance() + this.minerals[this.mineralCaughtIndex].getPrice());
                 }
                 break;
             default:
@@ -176,7 +176,7 @@ public class line {
     }
 
     /**
-     * 设置主任
+     * 设置主人
      *
      * @param _owner player
      */
