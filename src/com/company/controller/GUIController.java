@@ -27,6 +27,11 @@ public class GUIController extends JFrame {
     GameController game;
 
     /**
+     * 游戏进程控制器
+     */
+    GameProcessController GP;
+
+    /**
      * 玩家
      */
     player[] players;
@@ -83,8 +88,9 @@ public class GUIController extends JFrame {
 
         for (player p : this.players)
             p.painSelf(g2);
-        this.drawString("Score: " + this.game.getTotalScore(), g2, 30, 70, 30, Color.WHITE);
-        this.drawString("Level: " + this.game.getLevel(), g2, 630, 70, 30, Color.WHITE);
+        this.drawString("Score: " + this.game.getTotalScore(), g2, 30, 70, 20, Color.WHITE);
+        this.drawString("Level: " + this.game.getLevel(), g2, 680, 70, 20, Color.WHITE);
+        this.drawString(this.GP.getTime()+"/"+this.game.getTime(), g2, 380, 70, 20, Color.WHITE);
         g.drawImage(this.offsetCanvasImage, 0, 0, null);
     }
 
@@ -103,8 +109,9 @@ public class GUIController extends JFrame {
     /**
      * MenuController constructor.
      */
-    public GUIController(GameController _game) {
-        this.game = _game;
+    public GUIController(GameProcessController _game) {
+        this.game = _game.getGame();
+        this.GP = _game;
         this.players = this.game.getPlayers();
         this.minerals = this.game.getGameMap().getItems();
         this.thread = new GUIThread();

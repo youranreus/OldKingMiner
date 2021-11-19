@@ -87,4 +87,20 @@ public class GameProcessController extends BaseController {
             default -> System.out.println("PK模式");
         }
     }
+
+    /**
+     * 获取游戏
+     * @return game
+     */
+    public GameController getGame() {
+        return this.game;
+    }
+
+    /**
+     * 获取游戏已经运行时间
+     * @return time
+     */
+    public int getTime() {
+        return this.time;
+    }
 }
