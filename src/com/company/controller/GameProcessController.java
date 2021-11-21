@@ -7,17 +7,27 @@ public class GameProcessController extends BaseController {
     /**
      * 管理的进程游戏
      */
-    private GameController game;
+    public GameController game;
+
+    /**
+     * 管理的窗体控制器
+     */
+    public GUIController gui;
 
     /**
      * 游戏进行时间
      */
-    private int time;
+    public int time;
 
     /**
      * 游戏是否已经结束
      */
     private boolean ended;
+
+    /**
+     * 控制器线程
+     */
+    private GPThread thread;
 
     /**
      * GameProcessController constructor
@@ -28,41 +38,37 @@ public class GameProcessController extends BaseController {
         this.game = game;
         this.time = 0;
         this.ended = false;
+        this.start();
+        this.gui = new GUIController(this);
     }
 
     /**
      * 游戏开始
      */
     public void start() {
-        while (!this.ended) {
-            System.out.println("游戏开始");
-            this.displayGameInfo();
+        this.thread = new GPThread();
+        this.thread.setController(this);
+        this.thread.start();
+    }
 
-            while (!this.game.finished(this.time))
-            {
-                this.time++;
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                this.monitor();
-            }
-
-
-            if (this.game.hasPass())
-                this.game = new GameController(this.game);
-            else
-                this.ended = true;
-        }
-
-        System.out.println("游戏已结束");
+    /**
+     * 下一关
+     */
+    public void nextLevel() {
+        if(config.DEBUG)
+            System.out.println("已过关");
+        this.game = new GameController(this.game);
+        if(config.DEBUG)
+            System.out.println("关卡初始化完成");
+        this.gui.nextLevel();
+        this.time = 0;
+        this.gui = new GUIController(this);
     }
 
     /**
      * 监测游戏内数据
      */
-    private void monitor() {
+    public void monitor() {
         if(config.DEBUG)
         {
             System.out.println("------------------------------------------");
@@ -76,7 +82,7 @@ public class GameProcessController extends BaseController {
     /**
      * 展示当前游戏信息
      */
-    private void displayGameInfo() {
+    public void displayGameInfo() {
         System.out.println("当前游戏关卡信息：");
         System.out.println("level => " + this.game.getLevel());
         System.out.println("players => " + this.game.getPlayerNum());
@@ -102,5 +108,58 @@ public class GameProcessController extends BaseController {
      */
     public int getTime() {
         return this.time;
+    }
+
+    /**
+     * 是否结束
+     * @return boolean
+     */
+    public boolean isEnded() {
+        return ended;
+    }
+
+    /**
+     * 结束
+     * @param ended false
+     */
+    public void setEnded(boolean ended) {
+        this.ended = ended;
+    }
+}
+
+class GPThread extends Thread {
+
+    GameProcessController controller;
+
+    public void setController(GameProcessController c) {
+        controller = c;
+    }
+
+    public void run() {
+        while (!controller.isEnded()) {
+            System.out.println("游戏开始");
+            controller.displayGameInfo();
+
+            while (!controller.game.finished(controller.time))
+            {
+                controller.time++;
+                if (controller.game.hasPass())
+                    controller.nextLevel();
+
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                controller.monitor();
+            }
+
+            if (controller.game.hasPass())
+                controller.nextLevel();
+            else
+                controller.setEnded(true);
+        }
+
+        System.out.println("游戏已结束");
     }
 }

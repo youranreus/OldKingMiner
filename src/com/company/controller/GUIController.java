@@ -42,9 +42,9 @@ public class GUIController extends JFrame {
     mineral[] minerals;
 
     /**
-     * 绘图线程
+     *
      */
-    GUIThread thread;
+    public boolean running = false;
 
     /**
      * 界面初始化
@@ -67,8 +67,16 @@ public class GUIController extends JFrame {
                         players[1].dropTheLine();
             }
         });
-
-        this.thread.start();
+        this.running = true;
+        while (true) {
+            if(this.running)
+                this.repaint();
+            try {
+                Thread.sleep(10);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     /**
@@ -83,6 +91,8 @@ public class GUIController extends JFrame {
         Graphics g2 = this.offsetCanvasImage.getGraphics();
 
         bg.painSelf(g2);
+        if(this.minerals == null)
+            this.minerals = this.game.getGameMap().getItems();
         for (mineral mine : this.minerals)
             mine.painSelf(g2);
 
@@ -107,6 +117,14 @@ public class GUIController extends JFrame {
     }
 
     /**
+     * 清除矿物，进入下一关
+     */
+    public void nextLevel() {
+        this.running = false;
+        dispose();
+    }
+
+    /**
      * MenuController constructor.
      */
     public GUIController(GameProcessController _game) {
@@ -114,29 +132,7 @@ public class GUIController extends JFrame {
         this.GP = _game;
         this.players = this.game.getPlayers();
         this.minerals = this.game.getGameMap().getItems();
-        this.thread = new GUIThread();
-        this.thread.setController(this);
         this.launch();
     }
 
-}
-
-class GUIThread extends Thread {
-
-    GUIController controller;
-
-    public void setController(GUIController c) {
-        controller = c;
-    }
-
-    public void run() {
-        while (true) {
-            controller.repaint();
-            try {
-                sleep(10);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-    }
 }

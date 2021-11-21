@@ -99,6 +99,8 @@ public class GameController extends BaseController {
         this.time = upper.level == 100 ? 80 : upper.time - 1;
         this.customerGame = upper.customerGame;
         this.playerNum = upper.playerNum;
+        for(player p: this.players)
+            p.setBalance(0);
         this.maxScore = upper.maxScore + 120;
         this.gameMap = new map(upper.level + 1);
         this.gameMap.init();

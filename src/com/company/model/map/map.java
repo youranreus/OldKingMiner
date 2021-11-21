@@ -40,6 +40,7 @@ public class map implements MapAction {
     public void init() {
         int id_counter = 100;
         int rand = utils.random(30, 40 + this.level);
+        this.items = null;
         this.items = new mineral[rand];
         for (int i = 0; i < rand; i++) {
             int type = utils.random(10, 400);
