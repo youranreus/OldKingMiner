@@ -38,8 +38,8 @@ public class GameProcessController extends BaseController {
         this.game = game;
         this.time = 0;
         this.ended = false;
-        this.start();
         this.gui = new GUIController(this);
+        this.start();
     }
 
     /**
@@ -129,6 +129,14 @@ public class GameProcessController extends BaseController {
      */
     public void setEnded(boolean ended) {
         this.ended = ended;
+    }
+
+    /**
+     * 是否连接
+     * @return boolean
+     */
+    public boolean isConnected() {
+        return this.gui.net.isConnected();
     }
 }
 

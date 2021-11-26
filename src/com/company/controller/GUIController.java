@@ -47,6 +47,11 @@ public class GUIController extends JFrame {
     public boolean running = false;
 
     /**
+     * 联机管理器
+     */
+    public NetController net = new NetController();
+
+    /**
      * 界面初始化
      */
     void launch() {

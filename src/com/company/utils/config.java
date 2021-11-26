@@ -18,12 +18,12 @@ public class config {
      * 1 => 主机模式
      * 2 => 联机模式
      */
-    public static final int online = 0;
+    public static final int online = 1;
 
     /**
      * 需要连接到的服务器地址
      */
-    public static final String server = "";
+    public static final String server = "127.0.0.1";
 
     /**
      * 需要连接到的服务器端口
