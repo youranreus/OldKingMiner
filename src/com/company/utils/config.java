@@ -28,6 +28,6 @@ public class config {
     /**
      * 需要连接到的服务器端口
      */
-    public static final String port = "";
+    public static final int port = 4700;
 
 }
