@@ -55,27 +55,28 @@ public class GameProcessController extends BaseController {
      * 下一关
      */
     public void nextLevel() {
-        if(config.DEBUG)
+        if (config.DEBUG)
             System.out.println("已过关");
         this.game = new GameController(this.game);
-        if(config.DEBUG)
+        if (config.DEBUG)
             System.out.println("关卡初始化完成");
-        this.gui.nextLevel();
         this.time = 0;
+
         this.gui = new GUIController(this);
+        this.gui.nextLevel();
     }
 
     /**
      * 监测游戏内数据
      */
     public void monitor() {
-        if(config.DEBUG)
-        {
+        if (config.DEBUG) {
             System.out.println("------------------------------------------");
             System.out.println("当前游戏进度：\n关卡：" + this.game.getLevel());
-            System.out.println("玩家个数："+this.game.getPlayerNum());
-            System.out.println("游戏时间："+this.time + "/" +this.game.getTime());
-            System.out.println("游戏得分："+this.game.getTotalScore()+"/"+this.game.getMaxScore());
+            System.out.println("玩家个数：" + this.game.getPlayerNum());
+            System.out.println("游戏时间：" + this.time + "/" + this.game.getTime());
+            System.out.println("游戏得分：" + this.game.getTotalScore() + "/" + this.game.getMaxScore());
+            System.out.println("联机模式：" + config.online);
         }
     }
 
@@ -96,6 +97,7 @@ public class GameProcessController extends BaseController {
 
     /**
      * 获取游戏
+     *
      * @return game
      */
     public GameController getGame() {
@@ -104,6 +106,7 @@ public class GameProcessController extends BaseController {
 
     /**
      * 获取游戏已经运行时间
+     *
      * @return time
      */
     public int getTime() {
@@ -112,6 +115,7 @@ public class GameProcessController extends BaseController {
 
     /**
      * 是否结束
+     *
      * @return boolean
      */
     public boolean isEnded() {
@@ -120,6 +124,7 @@ public class GameProcessController extends BaseController {
 
     /**
      * 结束
+     *
      * @param ended false
      */
     public void setEnded(boolean ended) {
@@ -140,11 +145,10 @@ class GPThread extends Thread {
             System.out.println("游戏开始");
             controller.displayGameInfo();
 
-            while (!controller.game.finished(controller.time))
-            {
+            while (!controller.game.finished(controller.time)) {
                 controller.time++;
-                if (controller.game.hasPass())
-                    controller.nextLevel();
+//                if (controller.game.hasPass())
+//                    controller.nextLevel();
 
                 try {
                     Thread.sleep(1000);
