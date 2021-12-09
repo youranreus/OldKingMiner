@@ -43,9 +43,15 @@ public class NetController extends Thread {
     boolean mapReceived;
 
     /**
+     * 图形界面控制器
+     */
+    GUIController gui;
+
+    /**
      * 默认构造器
      */
-    public NetController() {
+    public NetController(GUIController g) {
+        this.gui = g;
         if (config.online == 2) {
             try {
                 socket = new Socket(config.server, config.port);
@@ -84,6 +90,7 @@ public class NetController extends Thread {
                 os = new PrintWriter(socket.getOutputStream());
                 os.println("connected");
                 os.flush();
+                is = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 connected = true;
             } catch (Exception e) {
                 System.out.println("Error." + e);
@@ -102,6 +109,16 @@ public class NetController extends Thread {
                 e.printStackTrace();
             }
         }
+        this.start();
+    }
+
+    /**
+     * 模拟点击
+     */
+    public void sendClick() {
+        System.out.println("发送点击");
+        os.println("click");
+        os.flush();
     }
 
     /**
@@ -115,6 +132,16 @@ public class NetController extends Thread {
 
     @Override
     public void run() {
-        super.run();
+        System.out.println("监听指令中");
+        while(true) {
+            try {
+//                System.out.println("接收到" + is.readLine());
+                if(Objects.equals(is.readLine(), "click")){
+                    this.gui.anotherClick();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

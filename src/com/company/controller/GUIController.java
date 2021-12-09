@@ -50,7 +50,7 @@ public class GUIController extends JFrame {
     /**
      * 联机管理器
      */
-    public NetController net = new NetController();
+    public NetController net = new NetController(this);
 
     /**
      * 界面初始化
@@ -66,12 +66,22 @@ public class GUIController extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                if (e.getButton() == 1)
-                    if (players[0].getLine().state == 0)
-                        players[0].dropTheLine();
-                if (e.getButton() == 3)
-                    if (players[1].getLine().state == 0)
-                        players[1].dropTheLine();
+                System.out.println("监听点击事件");
+                if (e.getButton() == 1){
+                    if(config.online == 1) {
+                        if (players[0].getLine().state == 0) {
+                            System.out.println("主机自己点击");
+                            players[0].dropTheLine();
+                        }
+                    }
+                    else {
+                        if (players[1].getLine().state == 0) {
+                            System.out.println("从机自己点击");
+                            players[1].dropTheLine();
+                        }
+                    }
+                    net.sendClick();
+                }
             }
         });
         this.running = true;
@@ -129,6 +139,22 @@ public class GUIController extends JFrame {
     public void nextLevel() {
         this.running = false;
         dispose();
+    }
+
+    /**
+     * 另一名玩家点击
+     */
+    public void anotherClick() {
+        if(config.online == 2) {
+            if (players[0].getLine().state == 0) {
+                players[0].dropTheLine();
+            }
+        }
+        else if(config.online == 1) {
+            if (players[1].getLine().state == 0) {
+                players[1].dropTheLine();
+            }
+        }
     }
 
     /**

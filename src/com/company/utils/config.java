@@ -5,7 +5,7 @@ public class config {
     /**
      * 版本
      */
-    public static final String VERSION = "0.0.5";
+    public static final String VERSION = "0.1.0";
 
     /**
      * 调试模式
