@@ -3,6 +3,7 @@ package com.company.controller;
 import com.company.model.entity.mineral;
 import com.company.model.entity.player;
 import com.company.model.map.background;
+import com.company.utils.config;
 
 import javax.swing.*;
 import java.awt.*;
@@ -57,6 +58,7 @@ public class GUIController extends JFrame {
     void launch() {
         this.setVisible(true);
         this.setSize(800, 800);
+        this.setTitle("老金矿工     "+ ((config.online == 0) ? "[本地模式]" : "[联机模式-" + ((config.online==1)?"主机]":"从机]")) +"v"+ config.VERSION);
         this.setLocationRelativeTo(null);
         bg = new background();
         setDefaultCloseOperation(EXIT_ON_CLOSE);

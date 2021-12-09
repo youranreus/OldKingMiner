@@ -38,6 +38,11 @@ public class NetController extends Thread {
     boolean connected;
 
     /**
+     * 地图是否已经接受
+     */
+    boolean mapReceived;
+
+    /**
      * 默认构造器
      */
     public NetController() {
