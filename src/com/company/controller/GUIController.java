@@ -72,15 +72,25 @@ public class GUIController extends JFrame {
                         if (players[0].getLine().state == 0) {
                             System.out.println("主机自己点击");
                             players[0].dropTheLine();
+                            net.sendClick();
                         }
                     }
-                    else {
+                    else if(config.online == 2) {
                         if (players[1].getLine().state == 0) {
                             System.out.println("从机自己点击");
                             players[1].dropTheLine();
+                            net.sendClick();
                         }
                     }
-                    net.sendClick();
+                    else {
+                        if (players[0].getLine().state == 0) {
+                            players[0].dropTheLine();
+                        }
+                    }
+                }
+
+                if (e.getButton() == 3 && players[1].getLine().state == 0){
+                    players[1].dropTheLine();
                 }
             }
         });

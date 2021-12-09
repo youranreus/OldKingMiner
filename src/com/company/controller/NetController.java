@@ -60,7 +60,6 @@ public class NetController extends Thread {
                 System.out.println("连接至" + config.server + ":" + config.port);
                 while (!connected)
                     wait4connect();
-                System.out.println("等待地图传输");
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -116,7 +115,6 @@ public class NetController extends Thread {
      * 模拟点击
      */
     public void sendClick() {
-        System.out.println("发送点击");
         os.println("click");
         os.flush();
     }
@@ -135,7 +133,6 @@ public class NetController extends Thread {
         System.out.println("监听指令中");
         while(true) {
             try {
-//                System.out.println("接收到" + is.readLine());
                 if(Objects.equals(is.readLine(), "click")){
                     this.gui.anotherClick();
                 }
