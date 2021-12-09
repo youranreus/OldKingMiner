@@ -38,8 +38,8 @@ public class GameProcessController extends BaseController {
         this.game = game;
         this.time = 0;
         this.ended = false;
-        this.gui = new GUIController(this);
         this.start();
+        this.gui = new GUIController(this);
     }
 
     /**
@@ -147,8 +147,6 @@ class GPThread extends Thread {
 
             while (!controller.game.finished(controller.time)) {
                 controller.time++;
-//                if (controller.game.hasPass())
-//                    controller.nextLevel();
 
                 try {
                     Thread.sleep(1000);
