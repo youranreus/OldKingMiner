@@ -130,8 +130,7 @@ public class GameController extends BaseController {
             this.players[1].resetTheLine();
         }
 
-        if (this.customerGame)
-            return;
+        if (this.customerGame) return;
         this.time = this.gameMode == 2 ? 999999 : 180 - this.level;
         this.maxScore = 500 + level * 120;
     }
