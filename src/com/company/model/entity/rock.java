@@ -28,6 +28,21 @@ public class rock extends mineral{
             this.price = 60;
     }
 
+    public rock(String _name, int _id, int _size, int x, int y) {
+        super(_name, _id, _size, x, y);
+        this.size = _size;
+        this.name = "岩石";
+        this.img = Toolkit.getDefaultToolkit().getImage("assets/img/rock1.png");
+        this.setHeight(71);
+        this.setWidth(71);
+        if (size == 1)
+            this.price = 10;
+        else if (size == 2)
+            this.price = 30;
+        else
+            this.price = 60;
+    }
+
     /**
      * 岩石生成深度: 100~800
      */

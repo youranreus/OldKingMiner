@@ -44,6 +44,23 @@ public class mineral extends item{
     }
 
     /**
+     * mineral constructor.
+     *
+     * @param _name 物体名
+     * @param _id id
+     * @param _size 物体大小
+     * @param x 物体x
+     * @param y 物体y
+     */
+    mineral(String _name, int _id, int _size, int x, int y) {
+        super(_name, 0, 0, _id);
+        this.size = _size;
+        this.name = "矿物";
+        this.x = x;
+        this.y = y;
+    }
+
+    /**
      * 获取矿物大小
      * @return int size
      */

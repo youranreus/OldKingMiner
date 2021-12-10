@@ -141,6 +141,9 @@ class GPThread extends Thread {
     }
 
     public void run() {
+        while(controller.gui == null || !controller.gui.net.connected) {
+
+        }
         while (!controller.isEnded()) {
             System.out.println("游戏开始");
             controller.displayGameInfo();
