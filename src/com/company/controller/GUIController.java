@@ -127,7 +127,12 @@ public class GUIController extends JFrame {
             p.painSelf(g2);
         this.drawString("Score: " + this.game.getTotalScore() + "/" + this.game.getMaxScore(), g2, 30, 70, 20, Color.WHITE);
         this.drawString("Level: " + this.game.getLevel(), g2, 680, 70, 20, Color.WHITE);
-        this.drawString(this.GP.getTime()+"/"+this.game.getTime(), g2, 380, 70, 20, Color.WHITE);
+        if(config.online == 0)
+            this.drawString(this.GP.getTime()+"/"+this.game.getTime(), g2, 380, 70, 20, Color.WHITE);
+        else if(config.online == 1)
+            this.drawString("Player1", g2, 380, 70, 20, Color.WHITE);
+        else
+            this.drawString("Player2", g2, 380, 70, 20, Color.WHITE);
         g.drawImage(this.offsetCanvasImage, 0, 0, null);
     }
 

@@ -56,9 +56,9 @@ public class map implements MapAction {
         else { //联机模式固定地图
             this.items = new mineral[35];
             //x(0, 800) y(200, 800)
-            this.items[0] = new rock("岩石", 101, 2, 100, 200);
-            this.items[1] = new rock("岩石", 102, 1, 50, 210);
-            this.items[2] = new rock("岩石", 103, 3, 150, 250);
+            this.items[0] = new rock("岩石", 101, 2, 100, 300);
+            this.items[1] = new rock("岩石", 102, 1, 50, 310);
+            this.items[2] = new rock("岩石", 103, 3, 150, 350);
             this.items[3] = new rock("岩石", 104, 2, 190, 300);
             this.items[4] = new rock("岩石", 105, 1, 400, 700);
             this.items[5] = new rock("岩石", 106, 2, 450, 310);
