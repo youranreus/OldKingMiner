@@ -3,10 +3,15 @@ package com.company;
 import com.company.controller.GUIController;
 import com.company.controller.GameController;
 import com.company.controller.GameProcessController;
+import com.company.utils.sound;
+
+import java.net.MalformedURLException;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws MalformedURLException, InterruptedException {
+        sound startBGM = new sound("D:\\CODE\\PROJECTS\\OldKingMiner\\assets\\media\\start.wav");
+        startBGM.play();
         //----------------------------------
         // 游戏基本信息对象
         // 包含
