@@ -20,7 +20,7 @@ public class player extends item implements PlayerAction {
     /**
      * 玩家红线
      */
-    private final line line;
+    public final line line;
 
     /**
      *

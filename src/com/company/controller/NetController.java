@@ -133,11 +133,26 @@ public class NetController extends Thread {
         System.out.println("监听指令中");
         while(true) {
             try {
-                if(Objects.equals(is.readLine(), "click")){
+                String s = is.readLine();
+                if(Objects.equals(s, "click")){
                     this.gui.anotherClick();
+                } else {
+                    System.out.println("同步角度数据");
+                    String[] arr = s.split(" ");
+                    double[] rad = new double[2];
+                    rad[0] = Double.parseDouble(arr[0]);
+                    rad[1] = Double.parseDouble(arr[1]);
+                    this.gui.players[0].line.rad = rad[0];
+                    this.gui.players[1].line.rad = rad[1];
                 }
             } catch (IOException e) {
                 e.printStackTrace();
+            }
+
+            if(config.online == 1) {
+                System.out.println("发送角度数据");
+                os.println(this.gui.players[0].line.rad+" "+this.gui.players[1].line.rad);
+                os.flush();
             }
         }
     }
