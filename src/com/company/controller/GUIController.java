@@ -89,7 +89,7 @@ public class GUIController extends JFrame {
                     }
                 }
 
-                if (e.getButton() == 3 && players[1].getLine().state == 0){
+                if (e.getButton() == 3 && players[1].getLine().state == 0 && config.online == 0) {
                     players[1].dropTheLine();
                 }
             }
