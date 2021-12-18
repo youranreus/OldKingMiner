@@ -3,6 +3,7 @@ package com.company.model.entity;
 import com.company.utils.utils;
 
 import java.awt.*;
+import java.net.MalformedURLException;
 
 public class diamond extends mineral{
 
@@ -13,11 +14,12 @@ public class diamond extends mineral{
      * @param _id id
      * @param _size 物体大小
      */
-    public diamond(String _name, int _id, int _size) {
+    public diamond(String _name, int _id, int _size) throws MalformedURLException {
         super(_name, _id, _size);
         this.size = _size;
         this.name = "钻石";
         this.img = Toolkit.getDefaultToolkit().getImage("assets/img/diamond.png");
+        this.audioUrl = "D:\\CODE\\PROJECTS\\OldKingMiner\\assets\\media\\diamond.wav";
         this.setHeight(32);
         this.setWidth(25);
         if (size == 1)
@@ -28,11 +30,12 @@ public class diamond extends mineral{
             this.price = 6000;
     }
 
-    public diamond(String _name, int _id, int _size, int x, int y) {
+    public diamond(String _name, int _id, int _size, int x, int y) throws MalformedURLException {
         super(_name, _id, _size, x, y);
         this.size = _size;
         this.name = "钻石";
         this.img = Toolkit.getDefaultToolkit().getImage("assets/img/diamond.png");
+        this.audioUrl = "D:\\CODE\\PROJECTS\\OldKingMiner\\assets\\media\\diamond.wav";
         this.setHeight(32);
         this.setWidth(25);
         if (size == 1)

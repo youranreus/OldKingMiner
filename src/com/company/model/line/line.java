@@ -3,8 +3,10 @@ package com.company.model.line;
 import com.company.model.entity.hook;
 import com.company.model.entity.mineral;
 import com.company.model.entity.player;
+import com.company.utils.soundThread;
 
 import java.awt.*;
+import java.net.MalformedURLException;
 
 public class line {
 
@@ -89,7 +91,7 @@ public class line {
      * @param _x x
      * @param _y y
      */
-    public line(int _x, int _y) {
+    public line(int _x, int _y) throws MalformedURLException {
         this.x = _x;
         this.endx = this.x;
         this.y = _y + 100;
@@ -102,7 +104,7 @@ public class line {
         this.hook = new hook("player", this.endx, this.endy);
     }
 
-    private void getSomething() {
+    private void getSomething() throws MalformedURLException {
         int index = 0;
         for (mineral m : this.minerals) {
             if (!m.isCaught() && this.endx > m.getX() && this.endx < m.getX() + m.getWidth() && this.endy > m.getY() && this.endy < m.getY() + m.getHeight()) {
@@ -110,9 +112,17 @@ public class line {
                 this.state = 3;
                 this.mineralCaughtIndex = index;
                 switch (m.getName()) {
-                    case "金矿" -> this.speed = 7;
-                    case "钻石" -> this.speed = 5;
-                    case "岩石" -> this.speed = 3;
+                    case "金矿" -> {
+                        this.speed = 7;
+                    }
+                    case "钻石" -> {
+                        this.speed = 5;
+                    }
+                    case "岩石" -> {
+                        this.speed = 3;
+                    }
+                    default -> {
+                    }
                 }
             }
             index++;
@@ -124,7 +134,7 @@ public class line {
      *
      * @param g 画笔
      */
-    public void paintSelf(Graphics g) {
+    public void paintSelf(Graphics g) throws MalformedURLException {
         getSomething();
         switch (this.state) {
             case 0:

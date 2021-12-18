@@ -4,6 +4,7 @@ import com.company.model.action.PlayerAction;
 import com.company.model.line.line;
 
 import java.awt.*;
+import java.net.MalformedURLException;
 
 public class player extends item implements PlayerAction {
 
@@ -34,7 +35,7 @@ public class player extends item implements PlayerAction {
      * @param _name 玩家名
      * @param id    玩家id
      */
-    public player(String _name, int id) {
+    public player(String _name, int id) throws MalformedURLException {
         super(_name, 2, 1, id);
         this.balance = 0;
         this.hp = 100;
@@ -51,7 +52,7 @@ public class player extends item implements PlayerAction {
      * @param _name 玩家名
      * @param id    玩家id
      */
-    public player(String _name, int id, int _x, int _y) {
+    public player(String _name, int id, int _x, int _y) throws MalformedURLException {
         super(_name, 2, 1, id);
         this.balance = 0;
         this.hp = 100;
@@ -66,7 +67,7 @@ public class player extends item implements PlayerAction {
      *
      * @param g 画笔
      */
-    public void painSelf(Graphics g) {
+    public void painSelf(Graphics g) throws MalformedURLException {
         g.drawImage(bg, this.x, this.y, null);
         line.paintSelf(g);
     }

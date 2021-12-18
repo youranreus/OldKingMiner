@@ -9,6 +9,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.net.MalformedURLException;
 
 public class GUIController extends JFrame {
 
@@ -123,8 +124,13 @@ public class GUIController extends JFrame {
         for (mineral mine : this.minerals)
             mine.painSelf(g2);
 
-        for (player p : this.players)
-            p.painSelf(g2);
+        for (player p : this.players) {
+            try {
+                p.painSelf(g2);
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
+        }
         this.drawString("Score: " + this.game.getTotalScore() + "/" + this.game.getMaxScore(), g2, 30, 70, 20, Color.WHITE);
         this.drawString("Level: " + this.game.getLevel(), g2, 680, 70, 20, Color.WHITE);
         if(config.online == 0)

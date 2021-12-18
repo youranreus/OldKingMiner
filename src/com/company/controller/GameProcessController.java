@@ -2,6 +2,8 @@ package com.company.controller;
 
 import com.company.utils.config;
 
+import java.net.MalformedURLException;
+
 public class GameProcessController extends BaseController {
 
     /**
@@ -54,7 +56,7 @@ public class GameProcessController extends BaseController {
     /**
      * 下一关
      */
-    public void nextLevel() {
+    public void nextLevel() throws MalformedURLException {
         if (config.DEBUG)
             System.out.println("已过关");
         this.game = new GameController(this.game);
@@ -159,8 +161,13 @@ class GPThread extends Thread {
                 controller.monitor();
             }
 
-            if (controller.game.hasPass())
-                controller.nextLevel();
+            if (controller.game.hasPass()) {
+                try {
+                    controller.nextLevel();
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                }
+            }
             else
                 controller.setEnded(true);
         }

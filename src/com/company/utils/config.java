@@ -18,7 +18,7 @@ public class config {
      * 1 => 主机模式
      * 2 => 联机模式
      */
-    public static final int online = 0;
+    public static final int online = 1;
 
     /**
      * 需要连接到的服务器地址

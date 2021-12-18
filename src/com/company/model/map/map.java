@@ -5,6 +5,7 @@ import com.company.utils.config;
 import com.company.utils.utils;
 import com.company.model.action.MapAction;
 
+import java.net.MalformedURLException;
 import java.util.Arrays;
 import java.util.Objects;
 
@@ -37,7 +38,7 @@ public class map implements MapAction {
     }
 
     @Override
-    public void init() {
+    public void init() throws MalformedURLException {
         int id_counter = 100;
         int rand = utils.random(30, 40 + this.level);
         //本地模式时随机生成地图

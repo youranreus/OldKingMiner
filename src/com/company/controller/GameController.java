@@ -3,6 +3,8 @@ package com.company.controller;
 import com.company.model.map.map;
 import com.company.model.entity.player;
 
+import java.net.MalformedURLException;
+
 public class GameController extends BaseController {
 
     /**
@@ -62,7 +64,7 @@ public class GameController extends BaseController {
      * @param gameMode  关卡模式
      * @param maxScore  最高分数
      */
-    public GameController(int level, int time, int playerNum, int gameMode, int maxScore) {
+    public GameController(int level, int time, int playerNum, int gameMode, int maxScore) throws MalformedURLException {
         this.level = level;
         this.time = time;
         this.playerNum = playerNum;
@@ -79,7 +81,7 @@ public class GameController extends BaseController {
      *
      * @param playerNum 玩家人数
      */
-    public GameController(int playerNum) {
+    public GameController(int playerNum) throws MalformedURLException {
         this.level = 0;
         this.gameMode = 1;
         this.playerNum = playerNum;
@@ -92,7 +94,7 @@ public class GameController extends BaseController {
      *
      * @param upper 上层关卡
      */
-    public GameController(GameController upper) {
+    public GameController(GameController upper) throws MalformedURLException {
         this.players = upper.players;
         this.level = upper.level == 100 ? 100 : upper.level + 1;
         this.gameMode = upper.gameMode;
@@ -112,7 +114,7 @@ public class GameController extends BaseController {
      * 时间为 (180 - level)s 直到第100关 80s
      * maxScore 为从 (500+level*120) 分
      */
-    private void init() {
+    private void init() throws MalformedURLException {
         this.gameMap.init();
         this.players = new player[this.playerNum];
         for (int i = 0; i < playerNum; i++)

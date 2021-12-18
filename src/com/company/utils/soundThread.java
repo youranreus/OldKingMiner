@@ -4,30 +4,29 @@ import java.net.MalformedURLException;
 
 public class soundThread extends Thread{
 
-    sound bgm;
+    String audioUrl;
 
     boolean play = false;
+
     boolean first = true;
 
-    public soundThread(String url) throws MalformedURLException {
-        bgm = new sound(url);
+    public soundThread(String url) {
+        this.audioUrl = url;
         this.start();
     }
 
     public void play() {
         this.play = true;
+        System.out.println("播放音频");
+        new PlayWav(this.audioUrl);
     }
 
     @Override
     public void run() {
-        super.run();
-        while(this.play || this.first) {
-            try {
-                this.bgm.play();
+        while(this.first) {
+            if(this.play) {
+                new PlayWav(this.audioUrl);
                 this.play = false;
-                this.first = false;
-            } catch (InterruptedException e) {
-                e.printStackTrace();
             }
         }
     }

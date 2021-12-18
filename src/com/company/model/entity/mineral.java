@@ -1,5 +1,7 @@
 package com.company.model.entity;
 
+import com.company.utils.PlayWav;
+import com.company.utils.soundThread;
 import com.company.utils.utils;
 
 import java.awt.*;
@@ -28,6 +30,11 @@ public class mineral extends item{
      * 被抓取状态
      */
     protected boolean caught;
+
+    /**
+     * 抓取音频的路径
+     */
+    protected String audioUrl;
 
     /**
      * mineral constructor
@@ -95,6 +102,7 @@ public class mineral extends item{
      */
     public void getCaught() {
         this.caught = true;
+        this.playBgm();
     }
 
     /**
@@ -104,5 +112,9 @@ public class mineral extends item{
      */
     public boolean isCaught() {
         return this.caught;
+    }
+
+    protected void playBgm() {
+        new PlayWav(this.audioUrl);
     }
 }

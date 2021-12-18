@@ -24,6 +24,6 @@ public class sound {
 
     public void play() throws InterruptedException {
         ac.play();
-        Thread.sleep(2000);
+        Thread.sleep(5000);
     }
 }

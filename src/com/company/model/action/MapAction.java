@@ -3,12 +3,14 @@ package com.company.model.action;
 import com.company.model.entity.item;
 import com.company.model.entity.mineral;
 
+import java.net.MalformedURLException;
+
 public interface MapAction {
 
     /**
      * 初始化地图
      */
-    void init();
+    void init() throws MalformedURLException;
 
     /**
      * 获取地图中物体数量

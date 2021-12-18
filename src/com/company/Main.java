@@ -1,17 +1,15 @@
 package com.company;
 
-import com.company.controller.GUIController;
 import com.company.controller.GameController;
 import com.company.controller.GameProcessController;
-import com.company.utils.soundThread;
+import com.company.utils.PlayWav;
 
 import java.net.MalformedURLException;
 
 public class Main {
 
     public static void main(String[] args) throws MalformedURLException, InterruptedException {
-        soundThread startBGM = new soundThread("D:\\CODE\\PROJECTS\\OldKingMiner\\assets\\media\\start.wav");
-        startBGM.play();
+        new PlayWav("D:\\CODE\\PROJECTS\\OldKingMiner\\assets\\media\\start.wav");
         //----------------------------------
         // 游戏基本信息对象
         // 包含
