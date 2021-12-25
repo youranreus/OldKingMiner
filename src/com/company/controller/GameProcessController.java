@@ -166,7 +166,8 @@ class GPThread extends Thread {
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    System.out.println("AWSL");
+                    break;
                 }
                 if (controller.game.hasPass()) {
                     try {

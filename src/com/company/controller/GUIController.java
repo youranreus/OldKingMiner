@@ -160,7 +160,6 @@ public class GUIController extends JFrame {
      * 清除矿物，进入下一关
      */
     public void nextLevel() {
-        this.running = false;
         dispose();
     }
 
