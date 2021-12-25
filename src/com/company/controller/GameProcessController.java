@@ -64,8 +64,18 @@ public class GameProcessController extends BaseController {
             System.out.println("关卡初始化完成");
         this.time = 0;
 
+        config.passed = true;
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        this.thread.interrupt();
+        this.thread = new GPThread();
+        this.thread.setController(this);
+        this.thread.start();
+
         this.gui = new GUIController(this);
-        this.gui.nextLevel();
     }
 
     /**
@@ -157,6 +167,13 @@ class GPThread extends Thread {
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
+                }
+                if (controller.game.hasPass()) {
+                    try {
+                        controller.nextLevel();
+                    } catch (MalformedURLException e) {
+                        e.printStackTrace();
+                    }
                 }
                 controller.monitor();
             }

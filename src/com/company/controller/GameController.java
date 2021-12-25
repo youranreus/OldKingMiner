@@ -106,6 +106,9 @@ public class GameController extends BaseController {
         this.maxScore = upper.maxScore + 120;
         this.gameMap = new map(upper.level + 1);
         this.gameMap.init();
+        for(player p: this.players) {
+            p.setLineMineral(this.gameMap.getItems());
+        }
     }
 
     /**

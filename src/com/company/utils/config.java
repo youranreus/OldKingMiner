@@ -35,4 +35,9 @@ public class config {
      */
     public static int players = 2;
 
+    /**
+     * 是否过关
+     */
+    public static boolean passed = false;
+
 }

@@ -59,7 +59,7 @@ public class GUIController extends JFrame {
     void launch() {
         this.setVisible(true);
         this.setSize(800, 800);
-        this.setTitle("老金矿工     "+ ((config.online == 0) ? "[本地模式]" : "[联机模式-" + ((config.online==1)?"主机]":"从机]")) +"v"+ config.VERSION);
+        this.setTitle("老金矿工     " + ((config.online == 0) ? "[本地模式]" : "[联机模式-" + ((config.online == 1) ? "主机]" : "从机]")) + "v" + config.VERSION);
         this.setLocationRelativeTo(null);
         bg = new background();
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -68,22 +68,20 @@ public class GUIController extends JFrame {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 System.out.println("监听点击事件");
-                if (e.getButton() == 1){
-                    if(config.online == 1) {
+                if (e.getButton() == 1) {
+                    if (config.online == 1) {
                         if (players[0].getLine().state == 0) {
                             System.out.println("主机自己点击");
                             players[0].dropTheLine();
                             net.sendClick();
                         }
-                    }
-                    else if(config.online == 2) {
+                    } else if (config.online == 2) {
                         if (players[1].getLine().state == 0) {
                             System.out.println("从机自己点击");
                             players[1].dropTheLine();
                             net.sendClick();
                         }
-                    }
-                    else {
+                    } else {
                         if (players[0].getLine().state == 0) {
                             players[0].dropTheLine();
                         }
@@ -97,8 +95,12 @@ public class GUIController extends JFrame {
         });
         this.running = true;
         while (true) {
-            if(this.running)
+            if (this.running)
                 this.repaint();
+            if (config.passed) {
+                config.passed = false;
+                this.nextLevel();
+            }
             try {
                 Thread.sleep(10);
             } catch (InterruptedException e) {
@@ -119,7 +121,7 @@ public class GUIController extends JFrame {
         Graphics g2 = this.offsetCanvasImage.getGraphics();
 
         bg.painSelf(g2);
-        if(this.minerals == null)
+        if (this.minerals == null)
             this.minerals = this.game.getGameMap().getItems();
         for (mineral mine : this.minerals)
             mine.painSelf(g2);
@@ -133,9 +135,9 @@ public class GUIController extends JFrame {
         }
         this.drawString("Score: " + this.game.getTotalScore() + "/" + this.game.getMaxScore(), g2, 30, 70, 20, Color.WHITE);
         this.drawString("Level: " + this.game.getLevel(), g2, 680, 70, 20, Color.WHITE);
-        if(config.online == 0)
-            this.drawString(this.GP.getTime()+"/"+this.game.getTime(), g2, 380, 70, 20, Color.WHITE);
-        else if(config.online == 1)
+        if (config.online == 0)
+            this.drawString(this.GP.getTime() + "/" + this.game.getTime(), g2, 380, 70, 20, Color.WHITE);
+        else if (config.online == 1)
             this.drawString("Player1", g2, 380, 70, 20, Color.WHITE);
         else
             this.drawString("Player2", g2, 380, 70, 20, Color.WHITE);
@@ -166,12 +168,11 @@ public class GUIController extends JFrame {
      * 另一名玩家点击
      */
     public void anotherClick() {
-        if(config.online == 2) {
+        if (config.online == 2) {
             if (players[0].getLine().state == 0) {
                 players[0].dropTheLine();
             }
-        }
-        else if(config.online == 1) {
+        } else if (config.online == 1) {
             if (players[1].getLine().state == 0) {
                 players[1].dropTheLine();
             }
