@@ -41,7 +41,7 @@ public class player extends item implements PlayerAction {
         this.hp = 100;
         this.setY(86);
         this.setX(346);
-        this.line = new line(400, 200);
+        this.line = new line(400, 100);
         this.line.setOwner(this);
     }
 
