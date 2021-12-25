@@ -1,6 +1,7 @@
 package com.company.model.entity;
 
 import com.company.utils.PlayWav;
+import com.company.utils.config;
 import com.company.utils.soundThread;
 import com.company.utils.utils;
 
@@ -115,6 +116,7 @@ public class mineral extends item{
     }
 
     protected void playBgm() {
-        new PlayWav(this.audioUrl);
+        if(config.sound)
+            new PlayWav(this.audioUrl);
     }
 }

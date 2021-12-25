@@ -40,4 +40,9 @@ public class config {
      */
     public static boolean passed = false;
 
+    /**
+     * 是否打开音效
+     */
+    public static boolean sound = true;
+
 }

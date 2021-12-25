@@ -41,10 +41,12 @@ public class MenuController extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         bg = new background();
         this.notEntered = true;
-        btn = new MenuItem[3];
+        btn = new MenuItem[5];
         btn[0] = new MenuItem("Solo");
         btn[1] = new MenuItem("Host");
         btn[2] = new MenuItem("Remote");
+        btn[3] = new MenuItem("on");
+        btn[4] = new MenuItem("off");
 
         btn[0].addActionListener(new ActionListener() {
             @Override
@@ -67,12 +69,30 @@ public class MenuController extends JFrame {
             }
         });
 
+        btn[3].addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                config.sound = true;
+            }
+        });
+
+        btn[4].addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                config.sound = false;
+            }
+        });
+
         Menu m = new Menu("start");
+        Menu s = new Menu("sound");
         MenuBar mb = new MenuBar();
         m.add(btn[0]);
         m.add(btn[1]);
         m.add(btn[2]);
+        s.add(btn[3]);
+        s.add(btn[4]);
         mb.add(m);
+        mb.add(s);
         this.setMenuBar(mb);
         this.play();
     }
