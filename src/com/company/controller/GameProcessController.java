@@ -143,7 +143,7 @@ class GPThread extends Thread {
     }
 
     public void run() {
-        while(controller.gui == null || !controller.gui.net.connected) {
+        while((controller.gui == null || !controller.gui.net.connected) && config.online != 0) {
 
         }
         while (!controller.isEnded()) {
