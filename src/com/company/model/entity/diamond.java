@@ -19,7 +19,7 @@ public class diamond extends mineral{
         this.size = _size;
         this.name = "钻石";
         this.img = Toolkit.getDefaultToolkit().getImage("assets/img/diamond.png");
-        this.audioUrl = "D:\\CODE\\PROJECTS\\OldKingMiner\\assets\\media\\diamond.wav";
+        this.audioUrl = "assets/media/diamond.wav";
         this.setHeight(32);
         this.setWidth(25);
         if (size == 1)
@@ -35,7 +35,7 @@ public class diamond extends mineral{
         this.size = _size;
         this.name = "钻石";
         this.img = Toolkit.getDefaultToolkit().getImage("assets/img/diamond.png");
-        this.audioUrl = "D:\\CODE\\PROJECTS\\OldKingMiner\\assets\\media\\diamond.wav";
+        this.audioUrl = "assets/media/diamond.wav";
         this.setHeight(32);
         this.setWidth(25);
         if (size == 1)

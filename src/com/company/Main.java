@@ -2,14 +2,19 @@ package com.company;
 
 import com.company.controller.GameController;
 import com.company.controller.GameProcessController;
+import com.company.controller.MenuController;
 import com.company.utils.PlayWav;
+import com.company.utils.config;
 
 import java.net.MalformedURLException;
 
 public class Main {
 
     public static void main(String[] args) throws MalformedURLException, InterruptedException {
-        new PlayWav("D:\\CODE\\PROJECTS\\OldKingMiner\\assets\\media\\start.wav");
+        new PlayWav("assets/media/start.wav");
+
+        MenuController menu = new MenuController();
+
         //----------------------------------
         // 游戏基本信息对象
         // 包含
@@ -20,7 +25,7 @@ public class Main {
         // - 游戏目标分
         // - 其他
         //----------------------------------
-        GameController game = new GameController(2);
+        GameController game = new GameController(config.players);
 
         //----------------------------------
         // 游戏进程控制器

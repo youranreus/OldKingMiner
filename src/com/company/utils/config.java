@@ -18,16 +18,21 @@ public class config {
      * 1 => 主机模式
      * 2 => 联机模式
      */
-    public static final int online = 1;
+    public static int online = 0;
 
     /**
      * 需要连接到的服务器地址
      */
-    public static final String server = "127.0.0.1";
+    public static final String server = "10.161.198.233";
 
     /**
      * 需要连接到的服务器端口
      */
     public static final int port = 4700;
+
+    /**
+     * 玩家人数
+     */
+    public static int players = 2;
 
 }

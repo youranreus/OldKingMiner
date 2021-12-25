@@ -18,7 +18,7 @@ public class gold extends mineral {
         super(_name, _id, _size);
         this.size = _size;
         this.name = "金矿";
-        this.audioUrl = "D:\\CODE\\PROJECTS\\OldKingMiner\\assets\\media\\gold.wav";
+        this.audioUrl = "assets/media/gold.wav";
         if (size == 1) {
             this.price = 100;
             this.img = Toolkit.getDefaultToolkit().getImage("assets/img/gold0.png");
@@ -41,7 +41,7 @@ public class gold extends mineral {
         super(_name, _id, _size, x, y);
         this.size = _size;
         this.name = "金矿";
-        this.audioUrl = "D:\\CODE\\PROJECTS\\OldKingMiner\\assets\\media\\gold.wav";
+        this.audioUrl = "assets/media/gold.wav";
         if (size == 1) {
             this.price = 100;
             this.img = Toolkit.getDefaultToolkit().getImage("assets/img/gold0.png");
